@@ -1,0 +1,28 @@
+{
+\def\sym#1{\ifmmode^{#1}\else\(^{#1}\)\fi}
+\begin{tabular}{l*{7}{c}}
+\toprule
+            &\multicolumn{1}{c}{(1)}&\multicolumn{1}{c}{(2)}&\multicolumn{1}{c}{(3)}&\multicolumn{1}{c}{(4)}&\multicolumn{1}{c}{(5)}&\multicolumn{1}{c}{(6)}&\multicolumn{1}{c}{(7)}\\
+            &\multicolumn{1}{c}{ "Industrial" "Industrial (ex-US)" "Developing" "Dev., Mid.-Inc." "Dev., High-Mid."  "Dev., Low-Mid." "Low Income" }&\multicolumn{1}{c}{rf\_jai\_pan\_ind\_ex\_us}&\multicolumn{1}{c}{rf\_jai\_pan\_dev}&\multicolumn{1}{c}{rf\_jai\_pan\_dev\_mid}&\multicolumn{1}{c}{rf\_jai\_pan\_midhi}&\multicolumn{1}{c}{rf\_jai\_pan\_midli}&\multicolumn{1}{c}{rf\_jai\_pan\_li}\\
+\midrule
+shock\_s1    &       0.011         &       0.010         &       0.004         &       0.008         &       0.008         &       0.005         &      -0.008         \\
+            &     (0.013)         &     (0.013)         &     (0.006)         &     (0.005)         &     (0.006)         &     (0.006)         &     (0.011)         \\
+\addlinespace
+shock\_t     &       0.005         &       0.005         &       0.014\sym{*}  &       0.006         &       0.004         &       0.016\sym{*}  &       0.067\sym{***}\\
+            &     (0.012)         &     (0.012)         &     (0.008)         &     (0.006)         &     (0.008)         &     (0.008)         &     (0.017)         \\
+\addlinespace
+D.tot       &       0.055         &       0.059\sym{*}  &       0.037\sym{**} &       0.033\sym{**} &       0.063\sym{**} &       0.015         &       0.030         \\
+            &     (0.034)         &     (0.034)         &     (0.015)         &     (0.013)         &     (0.026)         &     (0.010)         &     (0.022)         \\
+\addlinespace
+L.netlend   &       0.685\sym{***}&       0.675\sym{***}&       0.450\sym{***}&       0.650\sym{***}&       0.679\sym{***}&       0.599\sym{***}&       0.279\sym{**} \\
+            &     (0.054)         &     (0.055)         &     (0.073)         &     (0.044)         &     (0.049)         &     (0.078)         &     (0.112)         \\
+\addlinespace
+\_cons      &      -1.612\sym{***}&      -1.614\sym{***}&      -2.323\sym{***}&      -1.821\sym{***}&      -1.914\sym{***}&      -1.890\sym{***}&      -4.361\sym{***}\\
+            &     (0.394)         &     (0.407)         &     (0.287)         &     (0.199)         &     (0.262)         &     (0.279)         &     (0.867)         \\
+\midrule
+Mean Y      &       -1.54         &       -1.40         &       -2.04         &       -2.07         &       -2.22         &       -1.89         &       -1.98         \\
+Observations&         428         &         399         &        1259         &         894         &         491         &         403         &         365         \\
+Exc. Inst. F-stat&      16.772         &      17.217         &      11.525         &      19.212         &      11.742         &      15.432         &       7.922         \\
+\bottomrule
+\end{tabular}
+}

@@ -1,0 +1,130 @@
+{
+\def\sym#1{\ifmmode^{#1}\else\(^{#1}\)\fi}
+\begin{tabular}{l*{8}{c}}
+\toprule
+            &\multicolumn{1}{c}{(1)}&\multicolumn{1}{c}{(2)}&\multicolumn{1}{c}{(3)}&\multicolumn{1}{c}{(4)}&\multicolumn{1}{c}{(5)}&\multicolumn{1}{c}{(6)}&\multicolumn{1}{c}{(7)}&\multicolumn{1}{c}{(8)}\\
+            &\multicolumn{1}{c}{  "fall, t-1" "fall, t-2" "spring t" "spring t-1"  "fall - fall" "spring - spring" "spring-fall" "fall-spring" }&\multicolumn{1}{c}{rf\_f2}&\multicolumn{1}{c}{rf\_s0}&\multicolumn{1}{c}{rf\_s1}&\multicolumn{1}{c}{rf\_f2f1}&\multicolumn{1}{c}{rf\_s1s0}&\multicolumn{1}{c}{rf\_s1f1}&\multicolumn{1}{c}{rf\_f2s1}\\
+\midrule
+hi\_news\_f1  &      -0.037         &                     &                     &                     &                     &                     &                     &                     \\
+            &     (0.218)         &                     &                     &                     &                     &                     &                     &                     \\
+\addlinespace
+lo\_news\_f1  &       0.016         &                     &                     &                     &                     &                     &                     &                     \\
+            &     (0.211)         &                     &                     &                     &                     &                     &                     &                     \\
+\addlinespace
+hi\_gRGDP    &       0.310\sym{***}&       0.293\sym{***}&       0.216\sym{***}&       0.312\sym{***}&       0.287\sym{***}&       0.203\sym{**} &       0.281\sym{***}&       0.286\sym{***}\\
+            &     (0.090)         &     (0.091)         &     (0.063)         &     (0.095)         &     (0.057)         &     (0.083)         &     (0.076)         &     (0.093)         \\
+\addlinespace
+lo\_gRGDP    &       0.261\sym{**} &       0.252\sym{***}&       0.093         &       0.249\sym{**} &       0.222\sym{*}  &       0.074         &       0.235\sym{**} &       0.228\sym{*}  \\
+            &     (0.101)         &     (0.087)         &     (0.137)         &     (0.088)         &     (0.127)         &     (0.078)         &     (0.103)         &     (0.118)         \\
+\addlinespace
+hi\_shock\_f1 &      -0.000         &                     &                     &                     &                     &                     &                     &                     \\
+            &     (0.002)         &                     &                     &                     &                     &                     &                     &                     \\
+\addlinespace
+lo\_shock\_f1 &       0.010         &                     &                     &                     &                     &                     &                     &                     \\
+            &     (0.008)         &                     &                     &                     &                     &                     &                     &                     \\
+\addlinespace
+hi\_shock\_t  &       0.010\sym{**} &       0.010\sym{***}&       0.006         &       0.007         &       0.011\sym{***}&       0.005\sym{*}  &       0.010\sym{**} &       0.012\sym{**} \\
+            &     (0.004)         &     (0.003)         &     (0.004)         &     (0.006)         &     (0.004)         &     (0.003)         &     (0.004)         &     (0.004)         \\
+\addlinespace
+lo\_shock\_t  &       0.014\sym{*}  &       0.012\sym{*}  &       0.008         &       0.008         &       0.015\sym{**} &       0.005         &       0.014\sym{**} &       0.015\sym{**} \\
+            &     (0.007)         &     (0.006)         &     (0.007)         &     (0.009)         &     (0.006)         &     (0.006)         &     (0.007)         &     (0.007)         \\
+\addlinespace
+D.tot       &       0.054\sym{**} &       0.053\sym{**} &       0.055\sym{**} &       0.053\sym{*}  &       0.059\sym{**} &       0.054\sym{**} &       0.057\sym{**} &       0.059\sym{**} \\
+            &     (0.026)         &     (0.023)         &     (0.024)         &     (0.026)         &     (0.026)         &     (0.025)         &     (0.026)         &     (0.026)         \\
+\addlinespace
+L.netlend   &       0.657\sym{***}&       0.712\sym{***}&       0.635\sym{***}&       0.672\sym{***}&       0.644\sym{***}&       0.657\sym{***}&       0.646\sym{***}&       0.644\sym{***}\\
+            &     (0.104)         &     (0.066)         &     (0.092)         &     (0.088)         &     (0.076)         &     (0.080)         &     (0.091)         &     (0.073)         \\
+\addlinespace
+hi\_news\_f2  &                     &      -0.340\sym{***}&                     &                     &                     &                     &                     &                     \\
+            &                     &     (0.075)         &                     &                     &                     &                     &                     &                     \\
+\addlinespace
+lo\_news\_f2  &                     &      -0.141         &                     &                     &                     &                     &                     &                     \\
+            &                     &     (0.091)         &                     &                     &                     &                     &                     &                     \\
+\addlinespace
+hi\_shock\_f2 &                     &       0.003\sym{*}  &                     &                     &                     &                     &                     &                     \\
+            &                     &     (0.001)         &                     &                     &                     &                     &                     &                     \\
+\addlinespace
+lo\_shock\_f2 &                     &      -0.007         &                     &                     &                     &                     &                     &                     \\
+            &                     &     (0.005)         &                     &                     &                     &                     &                     &                     \\
+\addlinespace
+hi\_news\_s0  &                     &                     &       0.282\sym{*}  &                     &                     &                     &                     &                     \\
+            &                     &                     &     (0.163)         &                     &                     &                     &                     &                     \\
+\addlinespace
+lo\_news\_s0  &                     &                     &       0.319\sym{**} &                     &                     &                     &                     &                     \\
+            &                     &                     &     (0.117)         &                     &                     &                     &                     &                     \\
+\addlinespace
+hi\_shock\_s0 &                     &                     &       0.001         &                     &                     &                     &                     &                     \\
+            &                     &                     &     (0.002)         &                     &                     &                     &                     &                     \\
+\addlinespace
+lo\_shock\_s0 &                     &                     &       0.003         &                     &                     &                     &                     &                     \\
+            &                     &                     &     (0.007)         &                     &                     &                     &                     &                     \\
+\addlinespace
+hi\_news\_s1  &                     &                     &                     &      -0.074         &                     &                     &                     &                     \\
+            &                     &                     &                     &     (0.151)         &                     &                     &                     &                     \\
+\addlinespace
+lo\_news\_s1  &                     &                     &                     &      -0.049         &                     &                     &                     &                     \\
+            &                     &                     &                     &     (0.164)         &                     &                     &                     &                     \\
+\addlinespace
+hi\_shock\_s1 &                     &                     &                     &      -0.003         &                     &                     &                     &                     \\
+            &                     &                     &                     &     (0.002)         &                     &                     &                     &                     \\
+\addlinespace
+lo\_shock\_s1 &                     &                     &                     &       0.006         &                     &                     &                     &                     \\
+            &                     &                     &                     &     (0.006)         &                     &                     &                     &                     \\
+\addlinespace
+hi\_news\_f2f1&                     &                     &                     &                     &       0.563\sym{***}&                     &                     &                     \\
+            &                     &                     &                     &                     &     (0.118)         &                     &                     &                     \\
+\addlinespace
+lo\_news\_f2f1&                     &                     &                     &                     &       0.231         &                     &                     &                     \\
+            &                     &                     &                     &                     &     (0.552)         &                     &                     &                     \\
+\addlinespace
+hi\_shock\_f2f1&                     &                     &                     &                     &      -0.029         &                     &                     &                     \\
+            &                     &                     &                     &                     &     (0.019)         &                     &                     &                     \\
+\addlinespace
+lo\_shock\_f2f1&                     &                     &                     &                     &       0.013         &                     &                     &                     \\
+            &                     &                     &                     &                     &     (0.013)         &                     &                     &                     \\
+\addlinespace
+hi\_news\_s1s0&                     &                     &                     &                     &                     &       0.097         &                     &                     \\
+            &                     &                     &                     &                     &                     &     (0.123)         &                     &                     \\
+\addlinespace
+lo\_news\_s1s0&                     &                     &                     &                     &                     &       0.349\sym{***}&                     &                     \\
+            &                     &                     &                     &                     &                     &     (0.102)         &                     &                     \\
+\addlinespace
+hi\_shock\_s1s0&                     &                     &                     &                     &                     &      -0.013\sym{*}  &                     &                     \\
+            &                     &                     &                     &                     &                     &     (0.007)         &                     &                     \\
+\addlinespace
+lo\_shock\_s1s0&                     &                     &                     &                     &                     &       0.001         &                     &                     \\
+            &                     &                     &                     &                     &                     &     (0.009)         &                     &                     \\
+\addlinespace
+hi\_news\_s1f1&                     &                     &                     &                     &                     &                     &       0.160         &                     \\
+            &                     &                     &                     &                     &                     &                     &     (0.338)         &                     \\
+\addlinespace
+lo\_news\_s1f1&                     &                     &                     &                     &                     &                     &       0.385         &                     \\
+            &                     &                     &                     &                     &                     &                     &     (0.400)         &                     \\
+\addlinespace
+hi\_shock\_s1f1&                     &                     &                     &                     &                     &                     &      -0.032\sym{**} &                     \\
+            &                     &                     &                     &                     &                     &                     &     (0.014)         &                     \\
+\addlinespace
+lo\_shock\_s1f1&                     &                     &                     &                     &                     &                     &      -0.359\sym{**} &                     \\
+            &                     &                     &                     &                     &                     &                     &     (0.159)         &                     \\
+\addlinespace
+hi\_news\_f2s1&                     &                     &                     &                     &                     &                     &                     &       0.378\sym{***}\\
+            &                     &                     &                     &                     &                     &                     &                     &     (0.114)         \\
+\addlinespace
+lo\_news\_f2s1&                     &                     &                     &                     &                     &                     &                     &       0.640         \\
+            &                     &                     &                     &                     &                     &                     &                     &     (0.517)         \\
+\addlinespace
+hi\_shock\_f2s1&                     &                     &                     &                     &                     &                     &                     &      -0.025\sym{*}  \\
+            &                     &                     &                     &                     &                     &                     &                     &     (0.014)         \\
+\addlinespace
+lo\_shock\_f2s1&                     &                     &                     &                     &                     &                     &                     &       0.020\sym{*}  \\
+            &                     &                     &                     &                     &                     &                     &                     &     (0.011)         \\
+\addlinespace
+\_cons      &      -2.622\sym{***}&      -0.611         &      -2.169\sym{**} &      -1.627\sym{***}&      -1.742\sym{***}&      -0.831\sym{***}&      -1.637\sym{***}&      -1.740\sym{***}\\
+            &     (0.888)         &     (0.507)         &     (0.835)         &     (0.539)         &     (0.305)         &     (0.287)         &     (0.305)         &     (0.261)         \\
+\midrule
+Mean Y      &       -1.48         &       -1.47         &       -1.49         &       -1.48         &       -1.47         &       -1.48         &       -1.48         &       -1.47         \\
+Observations&         427         &         426         &         428         &         427         &         426         &         427         &         427         &         426         \\
+Exc. Inst. F-stat&       1.676         &       4.265         &       2.136         &       1.606         &       5.582         &       3.665         &       4.810         &       2.606         \\
+\bottomrule
+\end{tabular}
+}

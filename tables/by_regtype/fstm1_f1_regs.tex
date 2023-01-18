@@ -1,0 +1,28 @@
+{
+\def\sym#1{\ifmmode^{#1}\else\(^{#1}\)\fi}
+\begin{tabular}{l*{4}{c}}
+\toprule
+            &\multicolumn{1}{c}{(1)}&\multicolumn{1}{c}{(2)}&\multicolumn{1}{c}{(3)}&\multicolumn{1}{c}{(4)}\\
+            &\multicolumn{1}{c}{ "Industrial" "Industrial (ex-US)" "Dev., Mid.-Inc." "OECD" }&\multicolumn{1}{c}{fstm1\_jai\_pan\_ind\_ex\_us}&\multicolumn{1}{c}{fstm1\_jai\_pan\_dev\_mid}&\multicolumn{1}{c}{fstm1\_al\_tab\_oecd}\\
+\midrule
+shock\_f1    &       0.025\sym{***}&       0.025\sym{***}&       0.030\sym{***}&       0.021\sym{***}\\
+            &     (0.003)         &     (0.003)         &     (0.006)         &     (0.004)         \\
+\addlinespace
+shock\_t     &       0.002\sym{***}&       0.002\sym{***}&       0.001         &       0.002\sym{**} \\
+            &     (0.001)         &     (0.001)         &     (0.001)         &     (0.001)         \\
+\addlinespace
+D.tot       &      -0.012\sym{**} &      -0.012\sym{**} &      -0.006         &      -0.011\sym{**} \\
+            &     (0.005)         &     (0.005)         &     (0.004)         &     (0.005)         \\
+\addlinespace
+L.netlend   &       0.133\sym{***}&       0.135\sym{***}&       0.072\sym{**} &       0.164\sym{***}\\
+            &     (0.031)         &     (0.033)         &     (0.031)         &     (0.029)         \\
+\addlinespace
+\_cons      &      -0.100         &      -0.231         &       1.214\sym{*}  &       0.257         \\
+            &     (0.267)         &     (0.269)         &     (0.620)         &     (0.385)         \\
+\midrule
+Mean Y      &        2.07         &        2.04         &        3.97         &        2.08         \\
+Observations&         427         &         399         &         900         &         427         \\
+Exc. Inst. F-stat&      31.714         &      33.874         &      18.330         &      15.746         \\
+\bottomrule
+\end{tabular}
+}

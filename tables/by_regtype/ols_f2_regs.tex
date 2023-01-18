@@ -1,0 +1,27 @@
+{
+\def\sym#1{\ifmmode^{#1}\else\(^{#1}\)\fi}
+\begin{tabular}{l*{4}{c}}
+\toprule
+            &\multicolumn{1}{c}{(1)}&\multicolumn{1}{c}{(2)}&\multicolumn{1}{c}{(3)}&\multicolumn{1}{c}{(4)}\\
+            &\multicolumn{1}{c}{ "Industrial" "Industrial (ex-US)" "Dev., Mid.-Inc." "OECD" }&\multicolumn{1}{c}{ols\_jai\_pan\_ind\_ex\_us}&\multicolumn{1}{c}{ols\_jai\_pan\_dev\_mid}&\multicolumn{1}{c}{ols\_al\_tab\_oecd}\\
+\midrule
+news\_f2     &      -0.351\sym{***}&      -0.352\sym{***}&      -0.215\sym{***}&      -0.330\sym{***}\\
+            &     (0.067)         &     (0.067)         &     (0.059)         &     (0.060)         \\
+\addlinespace
+gRGDP       &       0.385\sym{***}&       0.373\sym{***}&       0.203\sym{***}&       0.395\sym{***}\\
+            &     (0.050)         &     (0.048)         &     (0.036)         &     (0.049)         \\
+\addlinespace
+D.tot       &       0.058\sym{**} &       0.060\sym{**} &       0.036\sym{***}&       0.060\sym{**} \\
+            &     (0.027)         &     (0.027)         &     (0.012)         &     (0.028)         \\
+\addlinespace
+L.netlend   &       0.689\sym{***}&       0.681\sym{***}&       0.631\sym{***}&       0.677\sym{***}\\
+            &     (0.063)         &     (0.067)         &     (0.038)         &     (0.071)         \\
+\addlinespace
+\_cons      &      -0.462\sym{**} &      -0.399\sym{*}  &      -0.695\sym{**} &      -0.451\sym{**} \\
+            &     (0.196)         &     (0.196)         &     (0.327)         &     (0.198)         \\
+\midrule
+Mean Y      &       -1.47         &       -1.34         &       -2.02         &       -1.22         \\
+Observations&         426         &         399         &         918         &         426         \\
+\bottomrule
+\end{tabular}
+}

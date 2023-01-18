@@ -2,9 +2,11 @@ clear all
 
 // Generate forecasts and save as .dta
 
-import excel "${rootdir}\WEOhistorical", sheet("ngdp_rpch") firstrow
+import excel "${rootdir}\WEOhistorical.xlsx", sheet("ngdp_rpch") firstrow
 
 destring, replace
+
+// All forecasts in a row predict the same date
 
 gen gRf0F = F1990ngdp_rpch if year == 1990 // Fall nowcast
 gen gRf0S = S1990ngdp_rpch if year == 1990 // Spring nowcast
@@ -72,7 +74,8 @@ foreach v of varlist * {
 destring, replace
 
 ren countryname country
-ren ïtime year
+*ren ïtime year
+ren time year
 ren netlendingnetborrowingofgdpgcnld netlend
 ren netbartertermsoftradeindex200010 tot
 ren gdpgrowthannualnygdpmktpkdzg gRGDP

@@ -1,0 +1,49 @@
+{
+\def\sym#1{\ifmmode^{#1}\else\(^{#1}\)\fi}
+\begin{tabular}{l*{8}{c}}
+\toprule
+            &\multicolumn{1}{c}{(1)}&\multicolumn{1}{c}{(2)}&\multicolumn{1}{c}{(3)}&\multicolumn{1}{c}{(4)}&\multicolumn{1}{c}{(5)}&\multicolumn{1}{c}{(6)}&\multicolumn{1}{c}{(7)}&\multicolumn{1}{c}{(8)}\\
+            &\multicolumn{1}{c}{  "fall, t-1" "fall, t-2" "spring t" "spring t-1"  "fall - fall" "spring - spring" "spring-fall" "fall-spring" }&\multicolumn{1}{c}{rf\_f2}&\multicolumn{1}{c}{rf\_s0}&\multicolumn{1}{c}{rf\_s1}&\multicolumn{1}{c}{rf\_f2f1}&\multicolumn{1}{c}{rf\_s1s0}&\multicolumn{1}{c}{rf\_s1f1}&\multicolumn{1}{c}{rf\_f2s1}\\
+\midrule
+shock\_f1    &       0.025         &                     &                     &                     &                     &                     &                     &                     \\
+            &     (0.017)         &                     &                     &                     &                     &                     &                     &                     \\
+\addlinespace
+shock\_t     &       0.062\sym{***}&       0.059\sym{***}&       0.059\sym{***}&       0.067\sym{***}&       0.057\sym{***}&       0.081\sym{***}&       0.059\sym{***}&       0.058\sym{***}\\
+            &     (0.018)         &     (0.017)         &     (0.017)         &     (0.017)         &     (0.018)         &     (0.022)         &     (0.016)         &     (0.018)         \\
+\addlinespace
+D.tot       &       0.030         &       0.027         &       0.030         &       0.030         &       0.028         &       0.033         &       0.028         &       0.027         \\
+            &     (0.024)         &     (0.023)         &     (0.025)         &     (0.022)         &     (0.022)         &     (0.024)         &     (0.024)         &     (0.020)         \\
+\addlinespace
+L.netlend   &       0.242\sym{**} &       0.250\sym{**} &       0.261\sym{**} &       0.279\sym{**} &       0.281\sym{**} &       0.271\sym{**} &       0.271\sym{**} &       0.273\sym{**} \\
+            &     (0.111)         &     (0.102)         &     (0.112)         &     (0.112)         &     (0.123)         &     (0.118)         &     (0.123)         &     (0.110)         \\
+\addlinespace
+shock\_f2    &                     &       0.028         &                     &                     &                     &                     &                     &                     \\
+            &                     &     (0.028)         &                     &                     &                     &                     &                     &                     \\
+\addlinespace
+shock\_s0    &                     &                     &       0.017         &                     &                     &                     &                     &                     \\
+            &                     &                     &     (0.015)         &                     &                     &                     &                     &                     \\
+\addlinespace
+shock\_s1    &                     &                     &                     &      -0.008         &                     &                     &                     &                     \\
+            &                     &                     &                     &     (0.011)         &                     &                     &                     &                     \\
+\addlinespace
+shock\_f2f1  &                     &                     &                     &                     &      -0.013         &                     &                     &                     \\
+            &                     &                     &                     &                     &     (0.034)         &                     &                     &                     \\
+\addlinespace
+shock\_s1s0  &                     &                     &                     &                     &                     &      -0.021\sym{**} &                     &                     \\
+            &                     &                     &                     &                     &                     &     (0.009)         &                     &                     \\
+\addlinespace
+shock\_s1f1  &                     &                     &                     &                     &                     &                     &       0.008         &                     \\
+            &                     &                     &                     &                     &                     &                     &     (0.025)         &                     \\
+\addlinespace
+shock\_f2s1  &                     &                     &                     &                     &                     &                     &                     &      -0.018         \\
+            &                     &                     &                     &                     &                     &                     &                     &     (0.039)         \\
+\addlinespace
+\_cons      &      -6.550\sym{***}&      -6.594\sym{***}&      -5.857\sym{***}&      -4.361\sym{***}&      -4.393\sym{***}&      -5.873\sym{***}&      -4.500\sym{***}&      -4.394\sym{***}\\
+            &     (1.786)         &     (2.032)         &     (1.644)         &     (0.867)         &     (0.959)         &     (1.190)         &     (0.827)         &     (0.944)         \\
+\midrule
+Mean Y      &       -1.98         &       -1.98         &       -1.98         &       -1.98         &       -1.98         &       -1.98         &       -1.98         &       -1.98         \\
+Observations&         365         &         365         &         365         &         365         &         365         &         365         &         365         &         365         \\
+Exc. Inst. F-stat&       6.115         &       6.925         &       5.932         &       7.922         &       7.060         &       6.775         &       7.817         &       7.922         \\
+\bottomrule
+\end{tabular}
+}

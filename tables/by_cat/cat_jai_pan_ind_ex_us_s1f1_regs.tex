@@ -1,0 +1,34 @@
+{
+\def\sym#1{\ifmmode^{#1}\else\(^{#1}\)\fi}
+\begin{tabular}{l*{5}{c}}
+\toprule
+            &\multicolumn{1}{c}{(1)}&\multicolumn{1}{c}{(2)}&\multicolumn{1}{c}{(3)}&\multicolumn{1}{c}{(4)}&\multicolumn{1}{c}{(5)}\\
+            &\multicolumn{1}{c}{OLS}&\multicolumn{1}{c}{RF}&\multicolumn{1}{c}{FS (GDP)}&\multicolumn{1}{c}{FS (news)}&\multicolumn{1}{c}{iv\_jai\_pan\_ind\_ex\_us}\\
+\midrule
+news\_s1f1   &       0.030         &                     &                     &                     &       0.043         \\
+            &     (0.262)         &                     &                     &                     &     (0.242)         \\
+\addlinespace
+gRGDP       &       0.376\sym{***}&                     &                     &                     &       0.524\sym{***}\\
+            &     (0.046)         &                     &                     &                     &     (0.055)         \\
+\addlinespace
+D.tot       &       0.060\sym{**} &       0.057\sym{**} &      -0.007         &      -0.007\sym{**} &       0.060\sym{**} \\
+            &     (0.028)         &     (0.026)         &     (0.014)         &     (0.003)         &     (0.026)         \\
+\addlinespace
+L.netlend   &       0.632\sym{***}&       0.715\sym{***}&       0.216\sym{***}&       0.049\sym{**} &       0.600\sym{***}\\
+            &     (0.085)         &     (0.073)         &     (0.058)         &     (0.017)         &     (0.069)         \\
+\addlinespace
+shock\_s1f1  &                     &      -0.003         &      -0.007         &       0.020\sym{***}&                     \\
+            &                     &     (0.006)         &     (0.006)         &     (0.006)         &                     \\
+\addlinespace
+shock\_t     &                     &       0.019\sym{***}&       0.036\sym{***}&       0.000         &                     \\
+            &                     &     (0.004)         &     (0.007)         &     (0.001)         &                     \\
+\addlinespace
+\_cons      &      -1.196\sym{***}&      -1.611\sym{***}&      -0.189         &       0.005         &                     \\
+            &     (0.150)         &     (0.305)         &     (0.481)         &     (0.035)         &                     \\
+\midrule
+Mean Y      &       -1.34         &       -1.34         &        1.85         &       -0.14         &       -1.34         \\
+Observations&         399         &         399         &         399         &         399         &         399         \\
+Exc. Inst. F-stat&                     &      14.471         &      27.418         &       4.708         &       4.473         \\
+\bottomrule
+\end{tabular}
+}

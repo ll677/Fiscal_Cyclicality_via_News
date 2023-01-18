@@ -1,0 +1,46 @@
+{
+\def\sym#1{\ifmmode^{#1}\else\(^{#1}\)\fi}
+\begin{tabular}{l*{8}{c}}
+\toprule
+            &\multicolumn{1}{c}{(1)}&\multicolumn{1}{c}{(2)}&\multicolumn{1}{c}{(3)}&\multicolumn{1}{c}{(4)}&\multicolumn{1}{c}{(5)}&\multicolumn{1}{c}{(6)}&\multicolumn{1}{c}{(7)}&\multicolumn{1}{c}{(8)}\\
+            &\multicolumn{1}{c}{  "fall, t-1" "fall, t-2" "spring t" "spring t-1"  "fall - fall" "spring - spring" "spring-fall" "fall-spring" }&\multicolumn{1}{c}{iv\_f2}&\multicolumn{1}{c}{iv\_s0}&\multicolumn{1}{c}{iv\_s1}&\multicolumn{1}{c}{iv\_f2f1}&\multicolumn{1}{c}{iv\_s1s0}&\multicolumn{1}{c}{iv\_s1f1}&\multicolumn{1}{c}{iv\_f2s1}\\
+\midrule
+news\_f1     &       0.751\sym{*}  &                     &                     &                     &                     &                     &                     &                     \\
+            &     (0.385)         &                     &                     &                     &                     &                     &                     &                     \\
+\addlinespace
+gRGDP       &       0.533\sym{***}&       0.548\sym{***}&       0.542         &       0.528\sym{***}&       0.577\sym{***}&       0.411\sym{***}&       0.544\sym{***}&       0.551\sym{***}\\
+            &     (0.058)         &     (0.062)         &     (0.375)         &     (0.086)         &     (0.067)         &     (0.154)         &     (0.068)         &     (0.053)         \\
+\addlinespace
+D.tot       &       0.069\sym{**} &       0.059\sym{*}  &       0.058\sym{*}  &       0.035         &       0.079\sym{***}&       0.057\sym{*}  &       0.068\sym{**} &       0.068\sym{**} \\
+            &     (0.033)         &     (0.033)         &     (0.035)         &     (0.049)         &     (0.031)         &     (0.034)         &     (0.033)         &     (0.033)         \\
+\addlinespace
+L.netlend   &       0.462\sym{***}&       0.685\sym{***}&       0.585\sym{***}&       0.939\sym{*}  &       0.520\sym{***}&       0.601\sym{***}&       0.525\sym{***}&       0.577\sym{***}\\
+            &     (0.112)         &     (0.067)         &     (0.051)         &     (0.500)         &     (0.052)         &     (0.060)         &     (0.068)         &     (0.043)         \\
+\addlinespace
+news\_f2     &                     &      -0.890\sym{***}&                     &                     &                     &                     &                     &                     \\
+            &                     &     (0.339)         &                     &                     &                     &                     &                     &                     \\
+\addlinespace
+news\_s0     &                     &                     &      -0.025         &                     &                     &                     &                     &                     \\
+            &                     &                     &     (0.450)         &                     &                     &                     &                     &                     \\
+\addlinespace
+news\_s1     &                     &                     &                     &      -2.954         &                     &                     &                     &                     \\
+            &                     &                     &                     &     (3.108)         &                     &                     &                     &                     \\
+\addlinespace
+news\_f2f1   &                     &                     &                     &                     &       1.265\sym{**} &                     &                     &                     \\
+            &                     &                     &                     &                     &     (0.503)         &                     &                     &                     \\
+\addlinespace
+news\_s1s0   &                     &                     &                     &                     &                     &       0.135         &                     &                     \\
+            &                     &                     &                     &                     &                     &     (0.182)         &                     &                     \\
+\addlinespace
+news\_s1f1   &                     &                     &                     &                     &                     &                     &       1.363         &                     \\
+            &                     &                     &                     &                     &                     &                     &     (0.971)         &                     \\
+\addlinespace
+news\_f2s1   &                     &                     &                     &                     &                     &                     &                     &       1.062\sym{***}\\
+            &                     &                     &                     &                     &                     &                     &                     &     (0.246)         \\
+\midrule
+Mean Y      &       -1.54         &       -1.53         &       -1.54         &       -1.54         &       -1.53         &       -1.54         &       -1.54         &       -1.53         \\
+Observations&         427         &         426         &         428         &         427         &         426         &         427         &         427         &         426         \\
+Exc. Inst. F-stat&      36.859         &      11.976         &       3.852         &       2.130         &       4.280         &      20.957         &       2.301         &      13.081         \\
+\bottomrule
+\end{tabular}
+}
