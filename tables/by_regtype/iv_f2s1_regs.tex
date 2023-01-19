@@ -1,25 +1,25 @@
 {
 \def\sym#1{\ifmmode^{#1}\else\(^{#1}\)\fi}
-\begin{tabular}{l*{4}{c}}
+\begin{tabular}{l*{5}{c}}
 \toprule
-            &\multicolumn{1}{c}{(1)}&\multicolumn{1}{c}{(2)}&\multicolumn{1}{c}{(3)}&\multicolumn{1}{c}{(4)}\\
-            &\multicolumn{1}{c}{ "Industrial" "Industrial (ex-US)" "Dev., Mid.-Inc." "OECD" }&\multicolumn{1}{c}{iv\_jai\_pan\_ind\_ex\_us}&\multicolumn{1}{c}{iv\_jai\_pan\_dev\_mid}&\multicolumn{1}{c}{iv\_al\_tab\_oecd}\\
+            &\multicolumn{1}{c}{(1)}&\multicolumn{1}{c}{(2)}&\multicolumn{1}{c}{(3)}&\multicolumn{1}{c}{(4)}&\multicolumn{1}{c}{(5)}\\
+            &\multicolumn{1}{c}{ "Dev., Mid.-Inc." "Dev., High Mid-Inc." "Dev., Low Mid-Inc." "Dev., Low-Inc." "OECD" }&\multicolumn{1}{c}{iv\_jai\_pan\_midhi}&\multicolumn{1}{c}{iv\_jai\_pan\_midli}&\multicolumn{1}{c}{iv\_jai\_pan\_li}&\multicolumn{1}{c}{iv\_rvk\_oecd}\\
 \midrule
-news\_f2s1   &       0.688\sym{***}&       0.702\sym{***}&      -0.027         &       0.555\sym{***}\\
-            &     (0.167)         &     (0.171)         &     (0.139)         &     (0.208)         \\
+news\_f2s1   &       0.261\sym{**} &       0.292\sym{**} &       0.296\sym{*}  &       3.230         &       0.598\sym{***}\\
+            &     (0.109)         &     (0.139)         &     (0.155)         &     (5.935)         &     (0.146)         \\
 \addlinespace
-gRGDP       &       0.556\sym{***}&       0.550\sym{***}&       0.337\sym{***}&       0.556\sym{***}\\
-            &     (0.046)         &     (0.046)         &     (0.062)         &     (0.043)         \\
+gRGDP       &       0.345\sym{***}&       0.297\sym{***}&       0.569\sym{***}&       2.854         &       0.573\sym{***}\\
+            &     (0.062)         &     (0.068)         &     (0.074)         &     (3.360)         &     (0.048)         \\
 \addlinespace
-D.tot       &       0.064\sym{***}&       0.067\sym{***}&       0.027\sym{**} &       0.065\sym{**} \\
-            &     (0.025)         &     (0.024)         &     (0.012)         &     (0.026)         \\
+D.tot       &       0.027\sym{**} &       0.059\sym{**} &       0.001         &       0.095         &       0.048         \\
+            &     (0.012)         &     (0.025)         &     (0.009)         &     (0.087)         &     (0.030)         \\
 \addlinespace
-L.netlend   &       0.615\sym{***}&       0.603\sym{***}&       0.607\sym{***}&       0.596\sym{***}\\
-            &     (0.061)         &     (0.064)         &     (0.051)         &     (0.070)         \\
+L.netlend   &       0.584\sym{***}&       0.612\sym{***}&       0.532\sym{***}&      -0.191         &       0.632\sym{***}\\
+            &     (0.055)         &     (0.067)         &     (0.084)         &     (1.019)         &     (0.042)         \\
 \midrule
-Mean Y      &       -1.47         &       -1.34         &       -2.14         &       -1.22         \\
-Observations&         426         &         399         &         857         &         426         \\
-Exc. Inst. F-stat&      19.786         &      19.524         &      30.283         &      47.767         \\
+Mean Y      &       -2.11         &       -2.23         &       -1.97         &       -2.06         &       -1.49         \\
+Observations&         893         &         483         &         410         &         359         &         407         \\
+Exc. Inst. F-stat&      90.788         &      20.155         &      53.364         &       0.241         &      34.801         \\
 \bottomrule
 \end{tabular}
 }

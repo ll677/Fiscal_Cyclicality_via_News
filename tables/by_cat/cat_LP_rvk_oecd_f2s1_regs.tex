@@ -1,0 +1,31 @@
+{
+\def\sym#1{\ifmmode^{#1}\else\(^{#1}\)\fi}
+\begin{tabular}{l*{4}{c}}
+\toprule
+            &\multicolumn{1}{c}{(1)}&\multicolumn{1}{c}{(2)}&\multicolumn{1}{c}{(3)}&\multicolumn{1}{c}{(4)}\\
+            &\multicolumn{1}{c}{OLS}&\multicolumn{1}{c}{RF}&\multicolumn{1}{c}{FS (news)}&\multicolumn{1}{c}{IV}\\
+\midrule
+news\_f2s1   &       0.430\sym{***}&                     &                     &       0.807\sym{***}\\
+            &     (0.120)         &                     &                     &     (0.158)         \\
+\addlinespace
+gRGDP       &       0.321\sym{***}&       0.317\sym{***}&       0.005         &       0.306\sym{***}\\
+            &     (0.065)         &     (0.062)         &     (0.019)         &     (0.066)         \\
+\addlinespace
+D.tot       &       0.046         &       0.044         &      -0.005\sym{**} &       0.049         \\
+            &     (0.034)         &     (0.033)         &     (0.002)         &     (0.032)         \\
+\addlinespace
+L.netlend   &       0.675\sym{***}&       0.677\sym{***}&       0.037\sym{***}&       0.647\sym{***}\\
+            &     (0.023)         &     (0.027)         &     (0.012)         &     (0.028)         \\
+\addlinespace
+shock\_f2s1  &                     &       0.023\sym{***}&       0.029\sym{***}&                     \\
+            &                     &     (0.005)         &     (0.003)         &                     \\
+\addlinespace
+\_cons      &      -1.029\sym{***}&      -0.964\sym{***}&       0.043         &                     \\
+            &     (0.121)         &     (0.126)         &     (0.050)         &                     \\
+\midrule
+Mean Y      &       -1.49         &       -1.50         &       -0.18         &       -1.49         \\
+Observations&         407         &         409         &         408         &         407         \\
+Exc. Inst. F-stat&                     &      19.716         &      91.031         &      93.017         \\
+\bottomrule
+\end{tabular}
+}

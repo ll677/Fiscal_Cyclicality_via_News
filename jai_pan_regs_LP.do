@@ -34,9 +34,10 @@ winsor2 netlend news_* gRGDP tot shock_*, replace c(1 99)
 gen jai_pan_dev = jai_pan_midhi | jai_pan_midli | jai_pan_li
 gen jai_pan_dev_mid = jai_pan_midhi | jai_pan_midli 
 gen al_tab_noecd = 1 - al_tab_oecd
+gen rvk_oecd = al_tab_oecd & country != "Malta" & country != "Iceland" & country != "Luxembourg"
 
-local cats "jai_pan_ind jai_pan_ind_ex_us jai_pan_dev_mid jai_pan_li al_tab_oecd"
-local cat_labels `" "Industrial" "Industrial (ex-US)" "Dev., Mid.-Inc." "Low Income" "OECD" "'
+local cats "jai_pan_dev_mid jai_pan_midhi jai_pan_midli jai_pan_li rvk_oecd"
+local cat_labels `" "Dev., Mid.-Inc." "Dev., High Mid-Inc." "Dev., Low Mid-Inc." "Dev., Low-Inc." "OECD" "'
 local window_labels `"  "fall, t-1" "fall, t-2" "spring t" "spring t-1"  "fall - fall" "spring - spring" "spring-fall" "fall-spring" "'
 
 local windows f1 f2 s0 s1 f2f1 s1s0 s1f1 f2s1

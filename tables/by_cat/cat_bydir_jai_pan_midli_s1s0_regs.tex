@@ -5,42 +5,42 @@
             &\multicolumn{1}{c}{(1)}&\multicolumn{1}{c}{(2)}&\multicolumn{1}{c}{(3)}\\
             &\multicolumn{1}{c}{OLS}&\multicolumn{1}{c}{RF}&\multicolumn{1}{c}{IV}\\
 \midrule
-hi\_news\_s1s0&       0.100         &       0.113         &      -0.389         \\
-            &     (0.115)         &     (0.122)         &     (0.958)         \\
+hi\_news\_s1s0&       0.061         &       0.055         &      -0.195         \\
+            &     (0.162)         &     (0.182)         &     (0.394)         \\
 \addlinespace
-lo\_news\_s1s0&       0.148         &       0.077         &       1.302         \\
-            &     (0.120)         &     (0.140)         &     (1.810)         \\
+lo\_news\_s1s0&       0.114         &       0.017         &       1.080         \\
+            &     (0.115)         &     (0.144)         &     (0.757)         \\
 \addlinespace
-hi\_gRGDP    &       0.149\sym{***}&       0.128\sym{***}&      -0.071         \\
-            &     (0.043)         &     (0.043)         &     (0.745)         \\
+hi\_gRGDP    &       0.142\sym{***}&       0.132\sym{***}&      -0.100         \\
+            &     (0.041)         &     (0.043)         &     (0.430)         \\
 \addlinespace
-lo\_gRGDP    &       0.174\sym{*}  &       0.177\sym{*}  &      -1.372         \\
-            &     (0.096)         &     (0.091)         &     (2.407)         \\
+lo\_gRGDP    &       0.188\sym{**} &       0.199\sym{**} &      -0.753         \\
+            &     (0.088)         &     (0.090)         &     (0.681)         \\
 \addlinespace
-D.tot       &       0.015         &       0.010         &       0.019         \\
-            &     (0.009)         &     (0.009)         &     (0.028)         \\
+D.tot       &       0.016         &       0.012         &       0.013         \\
+            &     (0.010)         &     (0.010)         &     (0.010)         \\
 \addlinespace
-L.netlend   &       0.560\sym{***}&       0.581\sym{***}&       0.345         \\
-            &     (0.078)         &     (0.078)         &     (0.274)         \\
+L.netlend   &       0.583\sym{***}&       0.599\sym{***}&       0.522\sym{***}\\
+            &     (0.078)         &     (0.080)         &     (0.094)         \\
 \addlinespace
-hi\_shock\_s1s0&                     &      -0.000         &                     \\
-            &                     &     (0.005)         &                     \\
-\addlinespace
-lo\_shock\_s1s0&                     &       0.000         &                     \\
-            &                     &     (0.010)         &                     \\
-\addlinespace
-hi\_shock\_t  &                     &       0.015\sym{***}&                     \\
-            &                     &     (0.004)         &                     \\
-\addlinespace
-lo\_shock\_t  &                     &       0.016\sym{**} &                     \\
+hi\_shock\_s1s0&                     &      -0.002         &                     \\
             &                     &     (0.007)         &                     \\
 \addlinespace
-\_cons      &      -1.403\sym{***}&      -2.157\sym{***}&                     \\
-            &     (0.321)         &     (0.504)         &                     \\
+lo\_shock\_s1s0&                     &      -0.006         &                     \\
+            &                     &     (0.027)         &                     \\
+\addlinespace
+hi\_shock\_t  &                     &       0.016\sym{***}&                     \\
+            &                     &     (0.005)         &                     \\
+\addlinespace
+lo\_shock\_t  &                     &       0.019\sym{**} &                     \\
+            &                     &     (0.007)         &                     \\
+\addlinespace
+\_cons      &      -1.379\sym{***}&      -2.232\sym{***}&                     \\
+            &     (0.313)         &     (0.527)         &                     \\
 \midrule
-Mean Y      &       -1.91         &       -1.92         &       -1.92         \\
-Observations&         409         &         392         &         392         \\
-Exc. Inst. F-stat&                     &       3.226         &       0.122         \\
+Mean Y      &       -1.95         &       -1.95         &       -1.95         \\
+Observations&         439         &         422         &         422         \\
+Exc. Inst. F-stat&                     &       3.811         &       1.484         \\
 \bottomrule
 \end{tabular}
 }

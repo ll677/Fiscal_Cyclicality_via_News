@@ -51,10 +51,11 @@ replace country = "Montenegro" if country == "Montenegro, Rep. of"
 replace country = "Russian Federation" if country == "Russia"
 replace country = "Sao Tome and Principe" if country == "São Tomé and Príncipe"
 replace country = "Syrian Arab Republic" if country == "Syria"
+replace country = "Turkiye" if country == "Türkiye"
 replace country = "Venezuela, RB" if country == "Venezuela"
 replace country = "Yemen, Rep." if country == "Yemen"
 
-keep country year gRf0F gRf0S gRf1F gRf1S
+keep country year gRf*
 
 save WEOhistorical, replace
 
@@ -82,6 +83,7 @@ ren gdpgrowthannualnygdpmktpkdzg gRGDP
 ren exportsofgoodsandservicesofgdpne exp_pcgdp
 
 replace country = "Korea, Dem. People's Rep." if country == "Korea, Dem. Peopleâs Rep."
+replace country = "Turkiye" if country == "Türkiye"
 
 save WB_WDI_vars, replace
 
@@ -89,14 +91,14 @@ save WB_WDI_vars, replace
 
 clear all
 
-import delimited match_groups, varnames(1)
+import delimited match_groups, varnames(1) clear
 
-ren ïcountry country
+cap ren ïcountry country
 
 sort country
 
-drop if country == country[_n-1]
-drop year
+*drop if country == country[_n-1]
+*drop year
 
 save match_groups, replace
 
