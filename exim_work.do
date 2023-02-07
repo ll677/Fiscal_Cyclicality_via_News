@@ -1,6 +1,6 @@
 clear all
 
-import delimited EXIM, varnames(1)
+import delimited $rootdir/data/input/EXIM.csv, varnames(1) clear
 
 drop status
 drop v9
@@ -186,4 +186,4 @@ drop if other_ctry == "Yugoslavia"
 drop if other_ctry == "Western Hemisphere"
 
 
-save EXIM, replace
+save $rootdir/data/processed/EXIM, replace

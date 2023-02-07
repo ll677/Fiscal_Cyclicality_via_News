@@ -2,8 +2,8 @@
 
 clear all
 
-use reg_data
-merge 1:1 country year using shocks
+use $rootdir/data/processed/reg_data
+merge 1:1 country year using $rootdir/data/processed/shocks
 
 drop _merge
 
@@ -83,9 +83,10 @@ esttab ols_`i' ///
 		rf_`i' ///
 		fstm1_`i' ///
 		iv_`i' ///
-		using tables/by_cat/cat_LP_`i'_`w'_regs.tex, replace booktabs b(3) se(3) ///
+		using "$rootdir/tables/LP/by_cat/cat_LP_`i'_`w'_regs.tex", replace booktabs b(3) se(3) ///
 		star(* 0.10 ** 0.05 *** 0.01) nonotes stats(ymean N shock_F, fmt(2 0 3) ///
-		labels("Mean Y" "Observations" "Exc. Inst. F-stat")) mtitle("OLS" "RF" "FS (news)" "IV") depvars
+		labels("Mean Y" "Observations" "Exc. Inst. F-stat")) mtitle("OLS" "RF" "FS (news)" "IV") depvars //label keep(gRGDP news_* shock_* d.tot l1.netlend) ///
+
 		
 
 }
@@ -111,15 +112,15 @@ foreach i of local cats {
 *		star(* 0.10 ** 0.05 *** 0.01) nonotes stats(ymean N, fmt(2 0) ///
 *		labels("Mean Y" "Observations")) mtitle(`"`cat_labels'"') depvars
 esttab `rfregs' ///
-		using "tables/by_regtype/rf_LP_`w'_regs.tex", replace booktabs b(3) se(3) ///
+		using "$rootdir/tables/LP/by_regtype/rf_LP_`w'_regs.tex", replace booktabs b(3) se(3) ///
 		star(* 0.10 ** 0.05 *** 0.01) nonotes stats(ymean N shock_F, fmt(2 0 3) ///
 		labels("Mean Y" "Observations" "Exc. Inst. F-stat")) mtitle(`"`cat_labels'"') depvars
 esttab `fstm1regs' ///
-		using "tables/by_regtype/fstm1_LP_`w'_regs.tex", replace booktabs b(3) se(3) ///
+		using "$rootdir/tables/LP/by_regtype/fstm1_LP_`w'_regs.tex", replace booktabs b(3) se(3) ///
 		star(* 0.10 ** 0.05 *** 0.01) nonotes stats(ymean N shock_F, fmt(2 0 3) ///
 		labels("Mean Y" "Observations" "Exc. Inst. F-stat")) mtitle(`"`cat_labels'"') depvars
 esttab `ivregs' ///
-		using "tables/by_regtype/iv_LP_`w'_regs.tex", replace booktabs b(3) se(3) ///
+		using "$rootdir/tables/LP/by_regtype/iv_LP_`w'_regs.tex", replace booktabs b(3) se(3) ///
 		star(* 0.10 ** 0.05 *** 0.01) nonotes stats(ymean N shock_F, fmt(2 0 3) ///
 		labels("Mean Y" "Observations" "Exc. Inst. F-stat")) mtitle(`"`cat_labels'"') depvars
 		
@@ -163,15 +164,15 @@ foreach i of local cats {
 	*	star(* 0.10 ** 0.05 *** 0.01) nonotes stats(ymean N, fmt(2 0) ///
 	*	labels("Mean Y" "Observations")) mtitle(`cat_labels') depvars
 	esttab `rfregs' ///
-		using "tables/by_group/rf_LP_`i'_regs.tex", replace booktabs b(3) se(3) ///
+		using "$rootdir/tables/LP/by_group/rf_LP_`i'_regs.tex", replace booktabs b(3) se(3) ///
 		star(* 0.10 ** 0.05 *** 0.01) nonotes stats(ymean N shock_F, fmt(2 0 3) ///
 		labels("Mean Y" "Observations" "Exc. Inst. F-stat")) mtitle(`"`window_labels'"') depvars
 	esttab `fstm1regs' ///
-		using "tables/by_group/fstm1_LP_`i'_regs.tex", replace booktabs b(3) se(3) ///
+		using "$rootdir/tables/LP/by_group/fstm1_LP_`i'_regs.tex", replace booktabs b(3) se(3) ///
 		star(* 0.10 ** 0.05 *** 0.01) nonotes stats(ymean N shock_F, fmt(2 0 3) ///
 		labels("Mean Y" "Observations" "Exc. Inst. F-stat")) mtitle(`"`window_labels'"') depvars
 	esttab `ivregs' ///
-		using "tables/by_group/iv_LP_`i'_regs.tex", replace booktabs b(3) se(3) ///
+		using "$rootdir/tables/LP/by_group/iv_LP_`i'_regs.tex", replace booktabs b(3) se(3) ///
 		star(* 0.10 ** 0.05 *** 0.01) nonotes stats(ymean N shock_F, fmt(2 0 3) ///
 		labels("Mean Y" "Observations" "Exc. Inst. F-stat")) mtitle(`"`window_labels'"') depvars
 		

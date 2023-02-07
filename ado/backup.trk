@@ -1,0 +1,439 @@
+* 00000035
+*! version 1.0.0
+* Do not erase or edit this file
+* It is used by Stata to track the ado and help
+* files you have installed.
+
+S http://fmwww.bc.edu/repec/bocode/b
+N binscatter.pkg
+D 23 Dec 2022
+U 5
+d 'BINSCATTER': module to generate binned scatterplots
+d 
+d  binscatter generates binned scatterplots, and is optimized for
+d speed in large  datasets.  Binned scatterplots provide a
+d non-parametric way of visualizing the relationship between two
+d variables.  With a large number of observations, a scatterplot
+d that plots every data point would become too crowded to interpret
+d visually.  binscatter groups the x-axis variable into equal-sized
+d bins, computes the mean of the x-axis and y-axis variables within
+d each bin, then creates a scatterplot of these data points.  It
+d provides built-in options to control for covariates before
+d plotting the relationship.  It will also plot fit lines based on
+d the underlying data, and can automatically handle regression
+d discontinuities.
+d 
+d KW: scatterplot
+d KW: data description
+d KW: regression discontinuity
+d 
+d Requires: Stata version 12.1
+d 
+d Distribution-Date: 20131124
+d 
+d Author: Michael Stepner
+d Support: email michaelstepner@@gmail.com
+d 
+f b\binscatter.ado
+f b\binscatter.sthlp
+e
+S http://fmwww.bc.edu/repec/bocode/t
+N tabout.pkg
+D  6 Jan 2023
+U 9
+d 'TABOUT': module to export publication quality cross-tabulations
+d 
+d  tabout is a table building program for oneway and twoway
+d tables of frequencies and percentages, and for summary tables. It
+d produces publication quality tables for export to a text file.
+d These tables can then be used with spreadsheets, word processors,
+d web browsers or compilers like LaTeX. The tables produced by
+d tabout allow multiple panels so that a number of variables can be
+d included in the one table. tabout also provides standard errors
+d and confidence intervals, as well as a range of table statistics
+d (chi2 etc). The output from tabout matches Stata's tabulate, most
+d of tabstat and some of table.
+d 
+d KW: tables
+d KW: latex
+d KW: html
+d KW: delimited text
+d 
+d Requires: Stata version 9.2
+d 
+d Distribution-Date: 20190316
+d 
+d Author: Ian Watson , Macquarie University, Australia
+d Support: email mail@@ianwatson.com.au
+d 
+f t\tabout.ado
+f t\tabstatout.ado
+f t\tabout.hlp
+f f\figout.ado
+f f\figout.hlp
+e
+S http://fmwww.bc.edu/repec/bocode/w
+N winsor2.pkg
+D 16 Jan 2023
+U 10
+d 'WINSOR2': module to winsorize data
+d 
+d    winsor2 can winsorize a varlist, operate with the by prefix,
+d and offers a replace option.
+d 
+d KW: winsor
+d KW: winsorize
+d KW: data management
+d 
+d Requires: Stata version 8
+d 
+d Distribution-Date: 20201125
+d 
+d Author: Yujun Lian, Department of Finance, Sun Yat-Sen University, China
+d Support: email arlionn@@163.com
+d 
+f w\winsor2.ado
+f w\winsor2.sthlp
+e
+S http://fmwww.bc.edu/repec/bocode/o
+N outtable.pkg
+D 19 Jan 2023
+U 17
+d 'OUTTABLE': module to write matrix to LaTeX table
+d 
+d outtable automates the conversion of a Stata matrix to a LaTeX
+d table, written to an external file. The table is presented with
+d row and column names taken from the specified matrix.  Thus, one
+d need only generate the appropriate matrix  using standard Stata
+d commands. By default, only the lower triangle of a symmetric
+d matrix will be written. The using clause is required, and must
+d specify the name of a file to which the LaTeX  table is to be
+d written, without the .tex extension. If the file exists, either
+d the  replace option or the append option must be specified.
+d outtable7 may be used in Stata version 7.
+d 
+d KW: data handling
+d KW: LaTeX
+d KW: matrices
+d 
+d Requires: Stata version 8.0 (7.0 for outtable7)
+d 
+d 
+d Author: Christopher F Baum, Boston College
+d Support: email baum@@bc.edu
+d 
+d Author: Joao Pedro Azevedo, World Bank
+d Support: email jazevedo@@worldbank.org
+d 
+d Distribution-Date: 20140803
+d 
+f o\outtable.ado
+f o\outtable.hlp
+f o\outtable7.ado
+f o\outtable7.hlp
+e
+S http://fmwww.bc.edu/repec/bocode/e
+N estout.pkg
+D  2 Feb 2023
+U 21
+d 'ESTOUT': module to make regression tables
+d 
+d  estout produces a table of regression results from one or
+d several models for use with spreadsheets, LaTeX, HTML, or a
+d word-processor table. eststo stores a quick copy of the active
+d estimation results for later tabulation. esttab is a wrapper for
+d estout. It displays a pretty looking publication-style regression
+d table without much typing. estadd adds additional results to the
+d e()-returns for one or several models previously fitted and
+d stored. This package subsumes the previously circulated esto,
+d esta, estadd,  and estadd_plus. An earlier version of estout is
+d available  as estout1.
+d 
+d KW: estimates
+d KW: LaTeX
+d KW: HTML
+d KW: word processor
+d KW: output
+d 
+d Requires: Stata version 8.2
+d 
+d Distribution-Date: 20220326
+d 
+d Author: Ben Jann, University of Bern
+d Support: email jann@@soz.unibe.ch
+d 
+f _\_eststo.ado
+f _\_eststo.hlp
+f e\estadd.ado
+f e\estadd.hlp
+f e\estout.ado
+f e\estout.hlp
+f e\eststo.ado
+f e\eststo.hlp
+f e\estpost.ado
+f e\estpost.hlp
+f e\esttab.ado
+f e\esttab.hlp
+e
+S http://fmwww.bc.edu/repec/bocode/a
+N avar.pkg
+D  4 Feb 2023
+U 30
+d 'AVAR': module to perform asymptotic covariance estimation for iid and non-iid data robust to heteroskedasticity, autocorrelation, 1- and 2-way clustering, and common cross-panel autocorrelated dis
+d 
+d  avar} is a routine for estimating S, the asymptotic variance of
+d (1/N)*Z'e, where Z is an NxL matrix of L variables, e is an Nxp
+d matrix of p variables, and N is the sample size. Typically, S
+d would be used to form a sandwich-type estimate of the variance of
+d an estimator, where S is the "filling" of the sandwich. avar can
+d estimate VCEs for single and multiple equations that are robust
+d to various violations of the assumption of iid data, including
+d heteroskedasticity, autocorrelation, 1- and 2-way clustering,
+d common cross-panel disturbances, etc. It supports time-series and
+d panel data.
+d 
+d KW: asymptotic variance
+d KW: VCE
+d KW: heteroskedasticity
+d KW: autocorrelation
+d KW: cluster-robust
+d KW: cross-equation correlation
+d 
+d Requires: Stata version 11.2 (version 9.2 for avar9)
+d 
+d Distribution-Date: 20150730
+d 
+d Author: Christopher F Baum, Boston College
+d Support: email baum@@bc.edu
+d 
+d Author: Mark E Schaffer, Heriot-Watt University
+d Support: email m.e.schaffer@@hw.ac.uk
+d 
+f a\avar.ado
+f a\avar9.ado
+f a\avar.sthlp
+f l\livreg2.mlib
+e
+S http://fmwww.bc.edu/repec/bocode/w
+N weakiv.pkg
+D  4 Feb 2023
+U 32
+d 'WEAKIV': module to perform weak-instrument-robust tests and confidence intervals for instrumental-variable (IV) estimation of linear, probit and tobit models
+d 
+d  weakiv calculates weak-instrument-robust tests of the
+d coefficients on the endogenous regressors in instrumental
+d variables (IV) estimation of models with any number of endogenous
+d regressors. weakiv supports estimation of linear IV models by
+d ivregress, ivreg2 and ivreg2h, panel data linear IV estimation
+d (fixed effects and first differences) by xtivreg and xtivreg2,
+d dynamic panel data estimation by xtabond2, and estimation of
+d probit and tobit IV models by ivprobit and ivtobit. In an
+d exactly-identified model with one instrument, weakiv reports the
+d Anderson-Rubin (AR) test statistic. When the IV model is
+d overidentified, weakiv also conducts the conditional likelihood
+d ratio (CLR) test, the Lagrange multiplier K test, the J
+d overidentification test, and a combination of the K and
+d overidentification tests (the K-J test). Minimum Distance/Wald
+d and LM versions of the tests are both supported. weakiv also
+d provides graphing facilities for visual examination and
+d presentation of rejection probabilities and confidence sets based
+d on these tests. For individual endogenous regressors, weakiv will
+d report confidence intervals and graph rejection probabilities
+d that are robust to weak identification. For 2 endogenous
+d regressors, weakiv constructs confidence sets and reports these
+d using 2-D contour plots and 3-D surface plots. For linear IV and
+d panel data model models, weakiv supports all the
+d variance-covariance estimators supported by ivregress, ivreg2 and
+d xtabond2 (robust, cluster-robust, HAC, 2-way clustering, Kiefer
+d and Driscoll-Kraay SEs, etc.). weakiv builds on and extends the
+d command rivtest by Finlay and Magnusson (Stata Journal 9(3),
+d 2009). weakiv requires Stata 11 or above. Users with Stata 10 are
+d recommended to install weakiv10, an older version of weakiv
+d suitable for Stata 10 without many of the extensions available in
+d weakiv.
+d 
+d KW: instrumental variables
+d KW: weak identification
+d KW: IV probit
+d KW: IV tobit
+d KW: panel data,
+d 
+d Requires: Stata version 11 and avar from SSC (q.v.)
+d 
+d Distribution-Date: 20161018
+d 
+d Author: Keith Finlay, Tulane University
+d Support: email not provided
+d 
+d Author: Leandro Magnusson, University of Western Australia
+d Support: email  leandro.magnusson@@uwa.edu.au
+d 
+d Author: Mark E Schaffer, Heriot-Watt University
+d Support: email m.e.schaffer@@hw.ac.uk
+d 
+f w\weakiv.ado
+f w\weakiv.sthlp
+e
+S http://fmwww.bc.edu/repec/bocode/w
+N weakivtest.pkg
+D  4 Feb 2023
+U 33
+d 'WEAKIVTEST': module to perform weak instrument test for a single endogenous regressor in TSLS and LIML
+d 
+d   weakivtest implements the weak instrument test of Montiel Olea
+d and Pflueger (J.Bus.Ec.Stat., 2013) that is robust to
+d heteroskedasticity, serial correlation, and clustering.
+d weakivtest tests the null hypothesis of    weak instruments for
+d both Two-Stage Least Squares (TSLS) and Limited Information
+d Maximum Likelihood (LIML) with one single endogenous
+d regressor.
+d 
+d KW: weak instruments
+d KW: 2SLS
+d KW: TSLS
+d KW: LIML
+d KW: non-i.i.d. errors
+d 
+d Requires: Stata version 10 and avar from SSC (q.v.)
+d 
+d Distribution-Date: 20201113
+d 
+d Author:  Carolin E. Pflueger, University of British Columbia
+d Support: email carolin.pflueger@@sauder.ubc.ca
+d 
+d Author: Su Wang, London School of Economics
+d Support: email s.wang50@@lse.ac.uk
+d 
+f w\weakivtest.ado
+f w\weakivtest.sthlp
+e
+S http://fmwww.bc.edu/repec/bocode/r
+N ranktest.pkg
+D  5 Feb 2023
+U 34
+d 'RANKTEST': module to test the rank of a matrix
+d 
+d  ranktest implements various tests for the rank of a matrix.
+d Tests of the rank of a matrix have many practical applications.
+d For example, in econometrics the requirement for identification
+d is the rank condition, which states that a particular matrix must
+d be of full column rank. Another example from econometrics
+d concerns cointegration in vector autoregressive (VAR) models; the
+d Johansen trace test is a test of a rank of a particular matrix.
+d The traditional test of the rank of a matrix for the standard
+d (stationary) case is the Anderson (1951) canonical correlations
+d test. If we denote one list of variables as Y and a second as Z,
+d and we calculate the squared canonical correlations between Y and
+d Z, the LM form of the Anderson test, where the null hypothesis is
+d that the matrix of correlations or regression parameters B
+d between Y and Z has rank(B)=r, is N times the sum of the r+1
+d largest squared canonical correlations. A large test statistic
+d and rejection of the null indicates that the matrix has rank at
+d least r+1. The Cragg-Donald (1993) statistic is a closely related
+d Wald test for the rank of a matrix. The standard versions of
+d these tests require the assumption that the covariance matrix has
+d a Kronecker form; when this is not so, e.g., when disturbances
+d are heteroskedastic or autocorrelated, the test statistics are no
+d longer valid. ranktest implements various generalizations of
+d these tests - Kleibergen-Paap, Cragg-Donald, and J-type 2-step
+d GMM and CUE GMM tests - to the case of a non-Kronecker covariance
+d matrix. The implementation in ranktest will calculate test
+d statistics that are robust to various forms of
+d heteroskedasticity, autocorrelation, and clustering.
+d 
+d KW: matrix
+d KW: rank
+d KW: collinearity
+d KW: cointegration
+d 
+d Requires: Stata version 12 (version 9.2 for ranktest9, version 11 for ranktest11)
+d 
+d Distribution-Date: 20200929
+d 
+d Author: Frank Kleibergen, Brown University
+d Support: email  Frank_Kleibergen@@brown.edu
+d 
+d Author: Mark E Schaffer, Heriot-Watt University
+d Support: email m.e.schaffer@@hw.ac.uk
+d 
+d Author: Frank Windmeijer, University of Oxford
+d Support: email frank.windmeijer@@stats.ox.ac.uk
+d 
+f r\ranktest.ado
+f r\ranktest9.ado
+f r\ranktest11.ado
+f r\ranktest.sthlp
+f r\ranktest11.sthlp
+f l\livreg2.mlib
+e
+S http://fmwww.bc.edu/repec/bocode/i
+N ivreg2.pkg
+D  5 Feb 2023
+U 35
+d 'IVREG2': module for extended instrumental variables/2SLS and GMM estimation
+d 
+d  ivreg2 provides extensions to Stata's official ivregress and
+d newey. Its main capabilities: two-step feasible GMM estimation;
+d continuously updated GMM estimation (CUE); LIML and k-class
+d estimation; automatic output of the Hansen-Sargan or
+d Anderson-Rubin statistic for overidentifying restrictions; C
+d statistic test of exogeneity of subsets of instruments (orthog()
+d option); kernel-based autocorrelation-consistent (AC) and
+d heteroskedastic and autocorrelation-consistent (HAC) estimation,
+d with user-specified choice of kernel; Cragg's "heteroskedastic
+d OLS" (HOLS) estimator; default reporting of large-sample
+d statistics (z and chi-squared rather than t and F); small option
+d to report small-sample statistics; first-stage regression
+d reported with F-test of excluded instruments and R-squared with
+d included instruments "partialled-out"; enhanced Kleibergen-Paap
+d and Cragg-Donald tests for weak instruments, redundancy of
+d instruments, significance of endogenous regressors; two-way
+d clustering of standard errors;  Kiefer and Driscoll-Kraay
+d standard errors. ivreg2 can also be used for ordinary least
+d squares (OLS) estimation using the same command syntax as Stata's
+d official regress and newey. New in this version: ivreg2 now
+d supports factor variables. This is version 4.1.11 of ivreg2,
+d updated from that published in Stata Journal, 5(4), requiring
+d Stata 11.2 or better. Stata 8.2/9.2/10.2 users may use this
+d routine, which will  automatically call ivreg28, ivreg29, or
+d ivreg210, respectively. These versions are now included in the
+d ivreg2 package. Stata 7 users may use the Stata Journal version
+d of ivreg2, accessible via net search ivreg2.
+d 
+d KW: instrumental variables
+d KW: Sargan test
+d KW: robust estimation
+d KW: orthogonality
+d KW: GMM
+d KW: Hansen's J
+d KW: heteroskedastic OLS,
+d 
+d Requires: Stata version 11.2 and ranktest from SSC
+d 
+d Distribution-Date: 20220510
+d 
+d Author: Christopher F Baum, Boston College
+d Support: email baum@@bc.edu
+d 
+d Author: Mark E Schaffer, Heriot-Watt University
+d Support: email m.e.schaffer@@hw.ac.uk
+d 
+d Author: Steven Stillman, Free University of Bozen-Bolzano
+d Support: email  Steven.Stillman@@unibz.it
+d 
+f i\ivreg2.ado
+f i\ivreg2.sthlp
+f i\ivreg2_p.ado
+f l\livreg2.mlib
+f i\ivreg210.ado
+f i\ivreg210.sthlp
+f i\ivreg210_p.ado
+f i\ivreg29.ado
+f i\ivreg29.hlp
+f i\ivreg29_p.ado
+f i\ivreg29_cue.ado
+f i\ivreg28.ado
+f i\ivreg28.hlp
+f i\ivreg28_p.ado
+f i\ivreg28_cue.ado
+e

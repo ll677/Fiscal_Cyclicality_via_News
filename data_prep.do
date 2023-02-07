@@ -2,37 +2,27 @@ clear all
 
 // Generate forecasts and save as .dta
 
-import excel "${rootdir}\WEOhistorical.xlsx", sheet("ngdp_rpch") firstrow
+
+// All forecasts in a row predict the same date
+import excel "${rootdir}/data/input/WEOhistorical.xlsx", sheet("ngdp_rpch") firstrow
 
 destring, replace
 
-// All forecasts in a row predict the same date
+ren *ngdp_rpch *
+ren S* fct*S
+ren F* fct*F
+egen row_group = group(year country)
+reshape long fct, i(row_group) j(fct_tag) string
 
-gen gRf0F = F1990ngdp_rpch if year == 1990 // Fall nowcast
-gen gRf0S = S1990ngdp_rpch if year == 1990 // Spring nowcast
-replace gRf0F = F1991ngdp_rpch if year == 1991 // Fall nowcast
-replace gRf0S = S1991ngdp_rpch if year == 1991 // Spring nowcast
+destring fct_tag, ignore("SF") gen(repyr)
+gen fct_hz = year - repyr
+tostring fct_hz, gen(fct_hz_tag)
+keep if fct_hz >= -1 & fct_hz <= 5
+replace fct_hz_tag = regexr(fct_tag,"[0-9][0-9][0-9][0-9]","") + subinstr(fct_hz_tag,"-","neg",.) + "yrs_ago"
+keep country year row_group fct_hz_tag fct
 
-gen gRf1F = F1990ngdp_rpch if year == 1991 // Fall 1-yr ahead forecast
-gen gRf1S = S1990ngdp_rpch if year == 1991 // Spring 1-yr ahead forecast
-
-gen gRf2F = . // Fall 2-yr ahead forecast
-gen gRf2S = . // Spring 2-yr ahead forecast
-
-local strtyr = 1992
-
-local endyr = 2019
-
-foreach y of num `strtyr'/`endyr' {
-	local ly = `y'-1
-	local lly = `y'-2
-	replace gRf0F = F`y'ngdp_rpch if year == `y'
-	replace gRf1F = F`ly'ngdp_rpch if year == `y'
-	replace gRf2F = F`lly'ngdp_rpch if year == `y'
-	replace gRf0S = S`y'ngdp_rpch if year == `y'
-	replace gRf1S = S`ly'ngdp_rpch if year == `y'
-	replace gRf2S = S`lly'ngdp_rpch if year == `y'
-}
+reshape wide fct, i(row_group) j(fct_hz_tag) string
+drop row_group
 
 // Reconciling country names with WB WDI data for merge
 
@@ -55,16 +45,16 @@ replace country = "Turkiye" if country == "Türkiye"
 replace country = "Venezuela, RB" if country == "Venezuela"
 replace country = "Yemen, Rep." if country == "Yemen"
 
-keep country year gRf*
+order country year fct*
 
-save WEOhistorical, replace
+save ${rootdir}/data/processed/WEOhistorical, replace
 
 clear all
 
 
 // import controls and save as .dta
 
-import delimited WB_WDI_vars, varnames(1)
+import delimited $rootdir/data/input/WB_WDI_vars, varnames(1)
 
 drop if countryname == ""
 
@@ -85,13 +75,13 @@ ren exportsofgoodsandservicesofgdpne exp_pcgdp
 replace country = "Korea, Dem. People's Rep." if country == "Korea, Dem. Peopleâs Rep."
 replace country = "Turkiye" if country == "Türkiye"
 
-save WB_WDI_vars, replace
+save $rootdir/data/processed/WB_WDI_vars, replace
 
 // save group indicators
 
 clear all
 
-import delimited match_groups, varnames(1) clear
+import delimited $rootdir/data/match_groups, varnames(1) clear
 
 cap ren ïcountry country
 
@@ -100,19 +90,23 @@ sort country
 *drop if country == country[_n-1]
 *drop year
 
-save match_groups, replace
+save $rootdir/data/match_groups, replace
 
 // Merge the data
 
 clear all
 
-use WEOhistorical
+use $rootdir/data/processed/WEOhistorical
 
-merge 1:1 country year using WB_WDI_vars
+merge 1:1 country year using $rootdir/data/processed/WB_WDI_vars
 
 drop _merge
 
-merge m:1 country using match_groups
+merge m:1 country using $rootdir/data/match_groups
+
+drop _merge
+
+merge 1:1 country year using $rootdir/data/processed/WB_WDI_expense_debt
 
 drop _merge
 
@@ -123,4 +117,4 @@ drop timecode countrycode
 drop if year > 2020
 order countryid, first
 
-save reg_data, replace
+save $rootdir/data/processed/reg_data, replace

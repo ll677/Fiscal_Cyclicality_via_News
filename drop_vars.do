@@ -2,7 +2,8 @@
 
 cap drop if country == "World"
 cap drop if country == "Advanced Economies"
-cap drop if country == "American Samoa"
+cap drop if country == "Africa Eastern and Southern"
+cap drop if country == "Africa Western and Central"
 cap drop if country == "Arab World"
 cap drop if country == "British Virgin Islands"
 cap drop if country == "Channel Islands"

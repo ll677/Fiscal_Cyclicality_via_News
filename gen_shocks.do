@@ -4,44 +4,24 @@ clear all
 
 //// generate pared down set of shock inputs
 
-use reg_data
+use $rootdir/data/processed/reg_data
 
 xtset countryid year
 
-/*
-gen news_s1f1 = l1.gRf1F - l1.gRf1S
-gen news_f2s1 = l1.gRf1S - l2.gRf2F 
-gen news_f2f1 = l1.gRf1F - l2.gRf2F 
-gen news_s1s0 = gRf0S - l1.gRf1S
-gen news_f1 = l1.gRf1F
-gen news_f2 = l2.gRf1F
-gen news_s0 = gRf0S
-gen news_s1 = l1.gRf1S
-*/
-
-gen news_s1f1 = gRf1F - gRf1S
-gen news_f2s1 = gRf1S - gRf2F 
-gen news_f2f1 = gRf1F - gRf2F 
-gen news_s1s0 = gRf0S - gRf1S
-gen news_f1 = gRf1F
-gen news_f2 = gRf2F
-gen news_s0 = gRf0S
-gen news_s1 = gRf1S
 
 gen other_ctry = country
 
-*keep other_ctry year news_s1f1 news_f2s1 news_f2f1 news_s1s0 gRGDP
-keep other_ctry year news_* gRGDP
+keep other_ctry year fct_* gRGDP
 
 qui include drop_vars.do
 
-save shock_inputs, replace
+save $rootdir/data/processed/shock_inputs, replace
 
 //// Generate shock dataset
 
 clear all
 
-use EXIM if strlen(year) == 4
+use $rootdir/data/processed/EXIM if strlen(year) == 4
 
 ////// calculate export shares of gdp weights
 
@@ -65,15 +45,19 @@ replace exp_share_tm1 = exp_share_tm1/temp // normalize to 1
 ////// generate shock weighted sums
 
 destring year, replace
-merge m:1 other_ctry year using shock_inputs
+merge m:1 other_ctry year using $rootdir/data/processed/shock_inputs
 drop if _merge ~= 3
 drop _merge
 
-merge m:1 country year using reg_data, keepusing(exp_pcgdp)
+merge m:1 country year using $rootdir/data/processed/reg_data, keepusing(exp_pcgdp)
 drop if _merge ~= 3
 drop _merge
  
 bysort country year : egen shock_t = total(exp_share_t * gRGDP)
+bysort country year : egen shock_f2t = total(exp_share_tm1 * news_f2t)
+bysort country year : egen shock_s1t = total(exp_share_tm1 * news_s1t)
+bysort country year : egen shock_f1t = total(exp_share_tm1 * news_f1t)
+bysort country year : egen shock_s0t = total(exp_share_tm1 * news_s0t)
 bysort country year : egen shock_s1f1 = total(exp_share_tm1 * news_s1f1)
 bysort country year : egen shock_f2s1 = total(exp_share_tm1 * news_f2s1)
 bysort country year : egen shock_f2f1 = total(exp_share_tm1 * news_f2f1)
@@ -105,14 +89,24 @@ la var unfull_flag "has empty export data rows"
 
 ////// save shocks
 
-replace shock_t = avg_exp * shock_t
-replace shock_s1f1 = avg_exp * shock_s1f1 
-replace shock_f2s1 = avg_exp * shock_f2s1 
-replace shock_f2f1 = avg_exp * shock_f2f1 
-replace shock_s1s0 = avg_exp * shock_s1s0 
-replace shock_f1 = avg_exp * shock_f1 
-replace shock_f2 = avg_exp * shock_f2
-replace shock_s0 = avg_exp * shock_s0
-replace shock_s1 = avg_exp * shock_s1 
+egen countryid = group(country)
+sort countryid year
+xtset countryid year
 
-save shocks, replace 
+replace shock_t = avg_exp * shock_t
+replace shock_f2t = l.avg_exp * shock_f2t
+replace shock_s1t = l.avg_exp * shock_s1t
+replace shock_f1t = l.avg_exp * shock_f1t
+replace shock_s0t = l.avg_exp * shock_s0t
+replace shock_s1f1 = l.avg_exp * shock_s1f1 
+replace shock_f2s1 = l.avg_exp * shock_f2s1 
+replace shock_f2f1 = l.avg_exp * shock_f2f1 
+replace shock_s1s0 = l.avg_exp * shock_s1s0 
+replace shock_f1 = l.avg_exp * shock_f1 
+replace shock_f2 = l.avg_exp * shock_f2
+replace shock_s0 = l.avg_exp * shock_s0
+replace shock_s1 = l.avg_exp * shock_s1 
+
+drop countryid
+
+save $rootdir/data/processed/shocks, replace 

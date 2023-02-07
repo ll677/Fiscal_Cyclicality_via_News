@@ -9,7 +9,7 @@ drop _merge
 
 qui include drop_vars.do
 
-drop if year < 1988 | year > 2019
+drop if year < 1990 | year > 2019
 
 sysdir set PLUS ado
 local inst_flag = 0
@@ -53,13 +53,13 @@ di "`w'"
 di "`i'"
 	
 	* OLS
-	qui: xtreg netlend news_`w' gRGDP d.tot l1.netlend if `i' == 1, fe cluster(countryid)
+	qui: xtreg wb_wdi_expense news_`w' gRGDP d.tot l1.wb_wdi_expense if `i' == 1, fe cluster(countryid)
 	qui: est store ols_`i'
 	qui: estadd ysumm
 	qui: est save results/ols_`w'_`i', replace
 	
 	* Reduced form
-	qui: xtreg netlend shock_`w' shock_t d.tot l1.netlend if `i' == 1, fe cluster(countryid)
+	qui: xtreg wb_wdi_expense shock_`w' shock_t d.tot l1.wb_wdi_expense if `i' == 1, fe cluster(countryid)
 	qui: est store rf_`i'
 	qui: estadd ysumm
 	qui: test shock_`w' shock_t
@@ -67,7 +67,7 @@ di "`i'"
 	qui: est save results/rf_`w'_`i', replace
 	
 	* First stage, gRGDP
-	qui: xtreg gRGDP shock_`w' shock_t d.tot l1.netlend if `i' == 1, fe cluster(countryid)
+	qui: xtreg gRGDP shock_`w' shock_t d.tot l1.wb_wdi_expense if `i' == 1, fe cluster(countryid)
 	qui: est store fst_`i'
 	qui: estadd ysumm
 	qui: test shock_`w' shock_t
@@ -75,7 +75,7 @@ di "`i'"
 	qui: est save results/fs_grgdp_`w'_`i', replace
 
 	* First stage, news
-	qui: xtreg news_`w' shock_`w' shock_t d.tot l1.netlend if `i' == 1, fe cluster(countryid)
+	qui: xtreg news_`w' shock_`w' shock_t d.tot l1.wb_wdi_expense if `i' == 1, fe cluster(countryid)
 	qui: est store fstm1_`i'
 	qui: estadd ysumm
 	qui: test shock_`w' shock_t
@@ -83,7 +83,7 @@ di "`i'"
 	qui: est save results/fs_news_`w'_`i', replace
 
 	* IV
-	qui: xi: xtivreg2 netlend (news_`w' gRGDP = shock_`w' shock_t) d.tot l1.netlend if `i' == 1, fe ffirst cluster(countryid)
+	qui: xi: xtivreg2 wb_wdi_expense (news_`w' gRGDP = shock_`w' shock_t) d.tot l1.wb_wdi_expense if `i' == 1, fe ffirst cluster(countryid)
 	qui: est store iv_`i'
 	qui: estadd ysumm
 	qui: estadd scalar shock_F = `e(widstat)' : iv_`i'
@@ -95,7 +95,7 @@ esttab ols_`i' ///
 		fst_`i' ///
 		fstm1_`i' ///
 		iv_`i' ///
-		using $rootdir/tables/rxn_fn/by_cat/cat_`i'_`w'_regs.tex, replace booktabs b(3) se(3) ///
+		using $rootdir/tables/exp/by_cat/cat_`i'_`w'_regs.tex, replace booktabs b(3) se(3) ///
 		star(* 0.10 ** 0.05 *** 0.01) nonotes stats(ymean N shock_F, fmt(2 0 3) ///
 		labels("Mean Y" "Observations" "Exc. Inst. F-stat")) mtitle("OLS" "RF" "FS (GDP)" "FS (news)") depvars
 		
@@ -120,23 +120,23 @@ foreach i of local cats {
 
 * Tables by regression type
 esttab `olsregs' ///
-		using "$rootdir/tables/rxn_fn/by_regtype/ols_`w'_regs.tex", replace booktabs b(3) se(3) ///
+		using "$rootdir/tables/exp/by_regtype/ols_`w'_regs.tex", replace booktabs b(3) se(3) ///
 		star(* 0.10 ** 0.05 *** 0.01) nonotes stats(ymean N, fmt(2 0) ///
 		labels("Mean Y" "Observations")) mtitle(`"`cat_labels'"') depvars
 esttab `rfregs' ///
-		using "$rootdir/tables/rxn_fn/by_regtype/rf_`w'_regs.tex", replace booktabs b(3) se(3) ///
+		using "$rootdir/tables/exp/by_regtype/rf_`w'_regs.tex", replace booktabs b(3) se(3) ///
 		star(* 0.10 ** 0.05 *** 0.01) nonotes stats(ymean N shock_F, fmt(2 0 3) ///
 		labels("Mean Y" "Observations" "Exc. Inst. F-stat")) mtitle(`"`cat_labels'"') depvars
 esttab `fstregs' ///
-		using "$rootdir/tables/rxn_fn/by_regtype/fst_`w'_regs.tex", replace booktabs b(3) se(3) ///
+		using "$rootdir/tables/exp/by_regtype/fst_`w'_regs.tex", replace booktabs b(3) se(3) ///
 		star(* 0.10 ** 0.05 *** 0.01) nonotes stats(ymean N shock_F, fmt(2 0 3) ///
 		labels("Mean Y" "Observations" "Exc. Inst. F-stat")) mtitle(`"`cat_labels'"') depvars
 esttab `fstm1regs' ///
-		using "$rootdir/tables/rxn_fn/by_regtype/fstm1_`w'_regs.tex", replace booktabs b(3) se(3) ///
+		using "$rootdir/tables/exp/by_regtype/fstm1_`w'_regs.tex", replace booktabs b(3) se(3) ///
 		star(* 0.10 ** 0.05 *** 0.01) nonotes stats(ymean N shock_F, fmt(2 0 3) ///
 		labels("Mean Y" "Observations" "Exc. Inst. F-stat")) mtitle(`"`cat_labels'"') depvars
 esttab `ivregs' ///
-		using "$rootdir/tables/rxn_fn/by_regtype/iv_`w'_regs.tex", replace booktabs b(3) se(3) ///
+		using "$rootdir/tables/exp/by_regtype/iv_`w'_regs.tex", replace booktabs b(3) se(3) ///
 		star(* 0.10 ** 0.05 *** 0.01) nonotes stats(ymean N shock_F, fmt(2 0 3) ///
 		labels("Mean Y" "Observations" "Exc. Inst. F-stat")) mtitle(`"`cat_labels'"') depvars
 		
@@ -178,23 +178,23 @@ foreach i of local cats {
 	}
 	
 	esttab `olsregs' ///
-		using "$rootdir/tables/rxn_fn/by_group/ols_`i'_regs.tex", replace booktabs b(3) se(3) ///
+		using "$rootdir/tables/exp/by_group/ols_`i'_regs.tex", replace booktabs b(3) se(3) ///
 		star(* 0.10 ** 0.05 *** 0.01) nonotes stats(ymean N, fmt(2 0) ///
 		labels("Mean Y" "Observations")) mtitle(`cat_labels') depvars
 	esttab `rfregs' ///
-		using "$rootdir/tables/rxn_fn/by_group/rf_`i'_regs.tex", replace booktabs b(3) se(3) ///
+		using "$rootdir/tables/exp/by_group/rf_`i'_regs.tex", replace booktabs b(3) se(3) ///
 		star(* 0.10 ** 0.05 *** 0.01) nonotes stats(ymean N shock_F, fmt(2 0 3) ///
 		labels("Mean Y" "Observations" "Exc. Inst. F-stat")) mtitle(`"`window_labels'"') depvars
 	esttab `fstregs' ///
-		using "$rootdir/tables/rxn_fn/by_group/fst_`i'_regs.tex", replace booktabs b(3) se(3) ///
+		using "$rootdir/tables/exp/by_group/fst_`i'_regs.tex", replace booktabs b(3) se(3) ///
 		star(* 0.10 ** 0.05 *** 0.01) nonotes stats(ymean N shock_F, fmt(2 0 3) ///
 		labels("Mean Y" "Observations" "Exc. Inst. F-stat")) mtitle(`"`window_labels'"') depvars
 	esttab `fstm1regs' ///
-		using "$rootdir/tables/rxn_fn/by_group/fstm1_`i'_regs.tex", replace booktabs b(3) se(3) ///
+		using "$rootdir/tables/exp/by_group/fstm1_`i'_regs.tex", replace booktabs b(3) se(3) ///
 		star(* 0.10 ** 0.05 *** 0.01) nonotes stats(ymean N shock_F, fmt(2 0 3) ///
 		labels("Mean Y" "Observations" "Exc. Inst. F-stat")) mtitle(`"`window_labels'"') depvars
 	esttab `ivregs' ///
-		using "$rootdir/tables/rxn_fn/by_group/iv_`i'_regs.tex", replace booktabs b(3) se(3) ///
+		using "$rootdir/tables/exp/by_group/iv_`i'_regs.tex", replace booktabs b(3) se(3) ///
 		star(* 0.10 ** 0.05 *** 0.01) nonotes stats(ymean N shock_F, fmt(2 0 3) ///
 		labels("Mean Y" "Observations" "Exc. Inst. F-stat")) mtitle(`"`window_labels'"') depvars
 		
