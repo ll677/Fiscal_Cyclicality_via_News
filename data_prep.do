@@ -71,20 +71,27 @@ ren netlendingnetborrowingofgdpgcnld netlend
 ren netbartertermsoftradeindex200010 tot
 ren gdpgrowthannualnygdpmktpkdzg gRGDP
 ren exportsofgoodsandservicesofgdpne exp_pcgdp
+ren expenseofgdpgcxpntotlgdzs wb_wdi_expense
+*ren centralgovernmentdebttotalofgdpg wb_wdi_debt
+*ren consumerpriceindex2010100fpcpito wb_wdi_cpi2010
+*ren inflationconsumerpricesannualfpc wb_wdi_infl
+*ren netlendingnetborrowingofgdpgcnld wb_wdi_netlend
+ren netinvestmentinnonfinancialasset wb_wdi_gov_net_inv
+ren interestpaymentsofexpensegcxpnin wb_wdi_govint_pcexp
 
 replace country = "Korea, Dem. People's Rep." if country == "Korea, Dem. Peopleâs Rep."
 replace country = "Turkiye" if country == "Türkiye"
+replace country = "Czech Republic" if country == "Czechia"
+
+gen wb_wdi_gov_intexp = wb_wdi_govint_pcexp*wb_wdi_expense/100
+gen wb_wdi_primbal = wb_wdi_netlend + wb_wdi_gov_intexp
 
 save $rootdir/data/processed/WB_WDI_vars, replace
 
 // save group indicators
 
-clear all
-
 import delimited $rootdir/data/match_groups, varnames(1) clear
-
 cap ren ïcountry country
-
 sort country
 
 *drop if country == country[_n-1]
@@ -106,15 +113,19 @@ merge m:1 country using $rootdir/data/match_groups
 
 drop _merge
 
-merge 1:1 country year using $rootdir/data/processed/WB_WDI_expense_debt
+*merge 1:1 country year using $rootdir/data/processed/WB_WDI_expense_debt
+merge 1:1 country year using $rootdir/data/processed/WB_WDI_extra
 
 drop _merge
+
+merge 1:1 country year using $rootdir/data/processed/IMF_IFS_rates, nogen
 
 // numericize country name
 
 egen countryid = group(country), label lname(country)
 drop timecode countrycode
-drop if year > 2020
 order countryid, first
+
+include drop_vars.do
 
 save $rootdir/data/processed/reg_data, replace

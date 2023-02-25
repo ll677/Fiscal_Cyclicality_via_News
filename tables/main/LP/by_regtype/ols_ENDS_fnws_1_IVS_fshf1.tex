@@ -1,0 +1,75 @@
+{
+\def\sym#1{\ifmmode^{#1}\else\(^{#1}\)\fi}
+\begin{tabular}{l*{4}{c}}
+\toprule
+                    &\multicolumn{1}{c}{(1)}&\multicolumn{1}{c}{(2)}&\multicolumn{1}{c}{(3)}&\multicolumn{1}{c}{(4)}\\
+                    &\multicolumn{1}{c}{ "OECD" "OECD, Smaller Exporters" "Dev., Mid.-Inc." "Dev., Low-Inc."}&\multicolumn{1}{c}{ols\_rvk\_oecd\_ex\_big}&\multicolumn{1}{c}{ols\_jai\_pan\_dev\_mid}&\multicolumn{1}{c}{ols\_jai\_pan\_li}\\
+\midrule
+Real YoY GDP Growth (\%)&       0.220\sym{**} &       0.152\sym{*}  &       0.146\sym{***}&       0.137\sym{***}\\
+                    &     (0.084)         &     (0.080)         &     (0.045)         &     (0.037)         \\
+\addlinespace
+{i.t-1}(t)$ (\%)    &                     &                     &                     &                     \\
+                    &                     &                     &                     &                     \\
+\addlinespace
+{i.t-2}(t)$ (\%)    &                     &                     &                     &                     \\
+                    &                     &                     &                     &                     \\
+\addlinespace
+$\\Delta FctShock\_{i,t-1}(t)$ (\%)&                     &                     &                     &                     \\
+                    &                     &                     &                     &                     \\
+\addlinespace
+$\\Delta FctShock\_{i,t-2}(t)$ (\%)&                     &                     &                     &                     \\
+                    &                     &                     &                     &                     \\
+\addlinespace
+^s\_{i.t-1}(t)$ (\%) &                     &                     &                     &                     \\
+                    &                     &                     &                     &                     \\
+\addlinespace
+^s\_{i.t-2}(t)$ (\%) &                     &                     &                     &                     \\
+                    &                     &                     &                     &                     \\
+\addlinespace
+$\\Delta FctShock^s\_{i,t-1}(t)$ (\%)&                     &                     &                     &                     \\
+                    &                     &                     &                     &                     \\
+\addlinespace
+$\\Delta FctShock^s\_{i,t-2}(t)$ (\%)&                     &                     &                     &                     \\
+                    &                     &                     &                     &                     \\
+\addlinespace
+^f\_{i.t-1}(t)$ (\%) &                     &                     &                     &                     \\
+                    &                     &                     &                     &                     \\
+\addlinespace
+^f\_{i.t-2}(t)$ (\%) &                     &                     &                     &                     \\
+                    &                     &                     &                     &                     \\
+\addlinespace
+$\\Delta FctShock^f\_{i,t-1}(t)$ (\%)&                     &                     &                     &                     \\
+                    &                     &                     &                     &                     \\
+\addlinespace
+$\\Delta FctShock^f\_{i,t-2}(t)$ (\%)&                     &                     &                     &                     \\
+                    &                     &                     &                     &                     \\
+\addlinespace
+{i.t}(t+1)$ (\%)    &                     &                     &                     &                     \\
+                    &                     &                     &                     &                     \\
+\addlinespace
+{i.t}(t+2)$ (\%)    &                     &                     &                     &                     \\
+                    &                     &                     &                     &                     \\
+\addlinespace
+$\\Delta FctShock\_{i,t}(t+1)$ (\%)&                     &                     &                     &                     \\
+                    &                     &                     &                     &                     \\
+\addlinespace
+$\\Delta FctShock\_{i,t}(t+2)$ (\%)&                     &                     &                     &                     \\
+                    &                     &                     &                     &                     \\
+\addlinespace
+d\_tot               &       0.040         &       0.048         &       0.026\sym{**} &       0.045\sym{*}  \\
+                    &     (0.034)         &     (0.034)         &     (0.010)         &     (0.026)         \\
+\addlinespace
+l\_wb\_wdi\_primbal    &       0.636\sym{***}&       0.609\sym{***}&       0.634\sym{***}&       0.411\sym{***}\\
+                    &     (0.050)         &     (0.056)         &     (0.040)         &     (0.070)         \\
+\addlinespace
+F.{i.t-1}(t)$ (\%)  &       0.350\sym{*}  &       0.481\sym{**} &       0.033         &      -0.080         \\
+                    &     (0.184)         &     (0.208)         &     (0.094)         &     (0.105)         \\
+\addlinespace
+Constant            &      -0.954\sym{***}&      -0.928\sym{**} &      -0.477\sym{*}  &      -0.431         \\
+                    &     (0.278)         &     (0.345)         &     (0.263)         &     (0.619)         \\
+\midrule
+Mean Y              &        0.73         &        1.33         &        0.73         &       -0.20         \\
+Observations        &         379         &         278         &         938         &         361         \\
+\bottomrule
+\end{tabular}
+}

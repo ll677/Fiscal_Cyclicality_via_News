@@ -2,3 +2,8 @@
 *.csv
 *.xlsx
 !match_groups.csv
+results/*
+tables/LP/*
+tables/rxn_fn/*
+*billrate*
+*bondrate*

@@ -1,0 +1,79 @@
+{
+\def\sym#1{\ifmmode^{#1}\else\(^{#1}\)\fi}
+\begin{tabular}{l*{4}{c}}
+\toprule
+                    &\multicolumn{1}{c}{(1)}&\multicolumn{1}{c}{(2)}&\multicolumn{1}{c}{(3)}&\multicolumn{1}{c}{(4)}\\
+                    &\multicolumn{1}{c}{ "OECD" "OECD, Smaller Exporters" "Dev., Mid.-Inc." "Dev., Low-Inc."}&\multicolumn{1}{c}{rf\_rvk\_oecd\_ex\_big}&\multicolumn{1}{c}{rf\_jai\_pan\_dev\_mid}&\multicolumn{1}{c}{rf\_jai\_pan\_li}\\
+\midrule
+Real YoY GDP Growth (\%)&       0.290\sym{***}&       0.248\sym{***}&       0.155\sym{***}&       0.105\sym{***}\\
+                    &     (0.064)         &     (0.063)         &     (0.034)         &     (0.036)         \\
+\addlinespace
+$ News\_{i.t-1}(t)$ (\%)&                     &                     &                     &                     \\
+                    &                     &                     &                     &                     \\
+\addlinespace
+$ News\_{i.t-2}(t)$ (\%)&                     &                     &                     &                     \\
+                    &                     &                     &                     &                     \\
+\addlinespace
+$ \Delta News\_{i,t-1}(t)$ (\%)&                     &                     &                     &                     \\
+                    &                     &                     &                     &                     \\
+\addlinespace
+$ \Delta News\_{i,t-2}(t)$ (\%)&                     &                     &                     &                     \\
+                    &                     &                     &                     &                     \\
+\addlinespace
+$ News^s\_{i.t-1}(t)$ (\%)&                     &                     &                     &                     \\
+                    &                     &                     &                     &                     \\
+\addlinespace
+$ News^s\_{i.t-2}(t)$ (\%)&                     &                     &                     &                     \\
+                    &                     &                     &                     &                     \\
+\addlinespace
+$ \Delta News^s\_{i,t-1}(t)$ (\%)&                     &                     &                     &                     \\
+                    &                     &                     &                     &                     \\
+\addlinespace
+$ \Delta News^s\_{i,t-2}(t)$ (\%)&                     &                     &                     &                     \\
+                    &                     &                     &                     &                     \\
+\addlinespace
+$ News^f\_{i.t-1}(t)$ (\%)&                     &                     &                     &                     \\
+                    &                     &                     &                     &                     \\
+\addlinespace
+$ News^f\_{i.t-2}(t)$ (\%)&                     &                     &                     &                     \\
+                    &                     &                     &                     &                     \\
+\addlinespace
+$ \Delta News^f\_{i,t-1}(t)$ (\%)&                     &                     &                     &                     \\
+                    &                     &                     &                     &                     \\
+\addlinespace
+$ \Delta News^f\_{i,t-2}(t)$ (\%)&                     &                     &                     &                     \\
+                    &                     &                     &                     &                     \\
+\addlinespace
+$ News\_{i.t}(t+1)$ (\%)&                     &                     &                     &                     \\
+                    &                     &                     &                     &                     \\
+\addlinespace
+$ News\_{i.t}(t+2)$ (\%)&                     &                     &                     &                     \\
+                    &                     &                     &                     &                     \\
+\addlinespace
+$ \Delta News\_{i,t}(t+1)$ (\%)&                     &                     &                     &                     \\
+                    &                     &                     &                     &                     \\
+\addlinespace
+$ \Delta News\_{i,t}(t+2)$ (\%)&                     &                     &                     &                     \\
+                    &                     &                     &                     &                     \\
+\addlinespace
+d\_tot               &       0.043         &       0.053         &       0.027\sym{***}&       0.046\sym{*}  \\
+                    &     (0.034)         &     (0.034)         &     (0.010)         &     (0.024)         \\
+\addlinespace
+l\_wb\_wdi\_primbal    &       0.645\sym{***}&       0.630\sym{***}&       0.596\sym{***}&       0.375\sym{***}\\
+                    &     (0.038)         &     (0.037)         &     (0.046)         &     (0.075)         \\
+\addlinespace
+$ FctShock^s\_{i.t-1}(t)$ (\%)&       0.007\sym{**} &       0.007\sym{*}  &       0.003\sym{*}  &       0.007         \\
+                    &     (0.003)         &     (0.003)         &     (0.002)         &     (0.008)         \\
+\addlinespace
+$ FctShock^s\_{i.t-2}(t)$ (\%)&      -0.005         &      -0.002         &      -0.006\sym{**} &      -0.005         \\
+                    &     (0.004)         &     (0.005)         &     (0.002)         &     (0.009)         \\
+\addlinespace
+Constant            &      -0.490         &      -0.498         &       0.061         &      -0.931         \\
+                    &     (0.480)         &     (0.610)         &     (0.255)         &     (1.290)         \\
+\midrule
+Mean Y              &        0.76         &        1.36         &        0.67         &       -0.24         \\
+Observations        &         403         &         296         &         978         &         375         \\
+Exc. Inst. F-stat   &       3.081         &       1.913         &       3.765         &       0.605         \\
+\bottomrule
+\end{tabular}
+}

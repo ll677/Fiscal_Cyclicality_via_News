@@ -1,0 +1,31 @@
+{
+\def\sym#1{\ifmmode^{#1}\else\(^{#1}\)\fi}
+\begin{tabular}{l*{4}{c}}
+\toprule
+                    &\multicolumn{1}{c}{(1)}&\multicolumn{1}{c}{(2)}&\multicolumn{1}{c}{(3)}&\multicolumn{1}{c}{(4)}\\
+                    &\multicolumn{1}{c}{OLS}&\multicolumn{1}{c}{RF}&\multicolumn{1}{c}{IV}&\multicolumn{1}{c}{ "FS (f.news\_1yrs\_ago)" }\\
+\midrule
+Real YoY GDP Growth (\%)&       0.137\sym{***}&       0.050         &      -0.473         &       0.150\sym{***}\\
+                    &     (0.037)         &     (0.048)         &     (0.322)         &     (0.042)         \\
+\addlinespace
+F.{i.t-1}(t)$ (\%)  &      -0.080         &                     &       3.331         &                     \\
+                    &     (0.105)         &                     &     (2.156)         &                     \\
+\addlinespace
+d\_tot               &       0.045\sym{*}  &       0.034\sym{*}  &       0.093\sym{*}  &      -0.017\sym{**} \\
+                    &     (0.026)         &     (0.019)         &     (0.055)         &     (0.007)         \\
+\addlinespace
+l\_wb\_wdi\_primbal    &       0.411\sym{***}&       0.326\sym{***}&       0.329\sym{***}&       0.003         \\
+                    &     (0.070)         &     (0.073)         &     (0.094)         &     (0.018)         \\
+\addlinespace
+F.shock\_fct1        &                     &       0.042\sym{***}&                     &       0.013\sym{**} \\
+                    &                     &     (0.012)         &                     &     (0.006)         \\
+\addlinespace
+Constant            &      -0.431         &      -4.803\sym{***}&                     &       3.257\sym{***}\\
+                    &     (0.619)         &     (1.302)         &                     &     (0.684)         \\
+\midrule
+Mean Y              &       -0.20         &       -0.28         &       -0.28         &        5.31         \\
+Observations        &         361         &         355         &         354         &         365         \\
+Exc. Inst. F-stat   &                     &      11.767         &       5.222         &       5.245         \\
+\bottomrule
+\end{tabular}
+}

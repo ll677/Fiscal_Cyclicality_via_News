@@ -1,0 +1,28 @@
+{
+\def\sym#1{\ifmmode^{#1}\else\(^{#1}\)\fi}
+\begin{tabular}{l*{4}{c}}
+\toprule
+            &\multicolumn{1}{c}{(1)}&\multicolumn{1}{c}{(2)}&\multicolumn{1}{c}{(3)}&\multicolumn{1}{c}{(4)}\\
+            &\multicolumn{1}{c}{OLS}&\multicolumn{1}{c}{RF}&\multicolumn{1}{c}{FS (GDP)}&\multicolumn{1}{c}{FS (news)}\\
+\midrule
+F.news\_s1t  &      -0.120         &                     &                     &      -0.366\sym{**} \\
+            &     (0.212)         &                     &                     &     (0.160)         \\
+\addlinespace
+D.tot       &       0.016         &       0.021         &      -0.045\sym{***}&       0.011         \\
+            &     (0.026)         &     (0.026)         &     (0.015)         &     (0.026)         \\
+\addlinespace
+L.wb\_wdi\_debt&       0.675\sym{***}&       0.679\sym{***}&      -0.022\sym{*}  &       0.665\sym{***}\\
+            &     (0.088)         &     (0.086)         &     (0.012)         &     (0.082)         \\
+\addlinespace
+F.shock\_s1t &                     &      -0.018\sym{**} &      -0.013\sym{***}&                     \\
+            &                     &     (0.007)         &     (0.004)         &                     \\
+\addlinespace
+\_cons      &      15.536\sym{***}&      15.370\sym{***}&       1.691\sym{***}&                     \\
+            &     (4.326)         &     (4.135)         &     (0.592)         &                     \\
+\midrule
+Mean Y      &       48.11         &       47.64         &        0.46         &       47.68         \\
+Observations&         550         &         535         &         567         &         514         \\
+Exc. Inst. F-stat&                     &       6.114         &       9.133         &      64.208         \\
+\bottomrule
+\end{tabular}
+}

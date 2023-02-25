@@ -1,0 +1,28 @@
+{
+\def\sym#1{\ifmmode^{#1}\else\(^{#1}\)\fi}
+\begin{tabular}{l*{4}{c}}
+\toprule
+            &\multicolumn{1}{c}{(1)}&\multicolumn{1}{c}{(2)}&\multicolumn{1}{c}{(3)}&\multicolumn{1}{c}{(4)}\\
+            &\multicolumn{1}{c}{OLS}&\multicolumn{1}{c}{RF}&\multicolumn{1}{c}{FS (GDP)}&\multicolumn{1}{c}{FS (news)}\\
+\midrule
+gRGDP       &       0.160\sym{***}&                     &                     &       1.781\sym{*}  \\
+            &     (0.042)         &                     &                     &     (0.924)         \\
+\addlinespace
+D.tot       &       0.049\sym{*}  &       0.031         &      -0.017         &       0.058\sym{*}  \\
+            &     (0.024)         &     (0.020)         &     (0.011)         &     (0.031)         \\
+\addlinespace
+L.netlend   &       0.412\sym{***}&       0.397\sym{***}&       0.164\sym{*}  &       0.120         \\
+            &     (0.066)         &     (0.094)         &     (0.095)         &     (0.187)         \\
+\addlinespace
+shock\_t     &                     &       0.048\sym{***}&       0.030\sym{*}  &                     \\
+            &                     &     (0.015)         &     (0.016)         &                     \\
+\addlinespace
+\_cons      &      -2.046\sym{***}&      -3.748\sym{***}&       3.541\sym{***}&                     \\
+            &     (0.182)         &     (0.826)         &     (0.946)         &                     \\
+\midrule
+Mean Y      &       -2.05         &       -2.05         &        4.69         &       -2.05         \\
+Observations&         387         &         367         &         384         &         367         \\
+Exc. Inst. F-stat&                     &       9.627         &       3.208         &       2.812         \\
+\bottomrule
+\end{tabular}
+}

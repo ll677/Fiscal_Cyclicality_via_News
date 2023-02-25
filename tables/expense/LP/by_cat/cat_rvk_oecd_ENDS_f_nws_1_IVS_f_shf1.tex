@@ -1,0 +1,34 @@
+{
+\def\sym#1{\ifmmode^{#1}\else\(^{#1}\)\fi}
+\begin{tabular}{l*{4}{c}}
+\toprule
+                    &\multicolumn{1}{c}{(1)}&\multicolumn{1}{c}{(2)}&\multicolumn{1}{c}{(3)}&\multicolumn{1}{c}{(4)}\\
+                    &\multicolumn{1}{c}{OLS}&\multicolumn{1}{c}{RF}&\multicolumn{1}{c}{IV}&\multicolumn{1}{c}{ "FS (f_news_1yrs_ago)" }\\
+\midrule
+Real YoY GDP Growth (\%)&      -0.351\sym{***}&      -0.415\sym{***}&      -0.366\sym{***}&       0.152\sym{*}  \\
+                    &     (0.070)         &     (0.040)         &     (0.088)         &     (0.072)         \\
+\addlinespace
+$ News_{i,t}(t+1)$ (\%)&      -0.377         &                     &      -0.316         &                     \\
+                    &     (0.238)         &                     &     (0.275)         &                     \\
+\addlinespace
+\% Change in terms-of-trade index&       0.014         &       0.014         &       0.014         &       0.002         \\
+                    &     (0.028)         &     (0.029)         &     (0.027)         &     (0.005)         \\
+\addlinespace
+Lagged government debt (\% GDP)&      -0.008         &      -0.007         &      -0.008         &      -0.004         \\
+                    &     (0.011)         &     (0.009)         &     (0.010)         &     (0.002)         \\
+\addlinespace
+Lagged primary balance (\% GDP)&       0.603\sym{***}&       0.619\sym{***}&       0.606\sym{***}&      -0.036\sym{**} \\
+                    &     (0.044)         &     (0.040)         &     (0.044)         &     (0.015)         \\
+\addlinespace
+$ FctShock_{i,t}(t+1)$ (\%)&                     &      -0.497         &                     &       1.595\sym{***}\\
+                    &                     &     (0.379)         &                     &     (0.456)         \\
+\addlinespace
+Constant            &      14.508\sym{***}&      13.697\sym{***}&                     &       1.760\sym{***}\\
+                    &     (1.910)         &     (1.364)         &                     &     (0.434)         \\
+\midrule
+Mean Y              &       31.02         &       31.02         &       31.02         &        2.19         \\
+Observations        &         218         &         218         &         218         &         231         \\
+Exc. Inst. F-stat   &                     &       1.722         &      12.662         &      12.258         \\
+\bottomrule
+\end{tabular}
+}

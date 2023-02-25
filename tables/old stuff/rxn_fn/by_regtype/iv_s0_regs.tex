@@ -1,0 +1,25 @@
+{
+\def\sym#1{\ifmmode^{#1}\else\(^{#1}\)\fi}
+\begin{tabular}{l*{5}{c}}
+\toprule
+            &\multicolumn{1}{c}{(1)}&\multicolumn{1}{c}{(2)}&\multicolumn{1}{c}{(3)}&\multicolumn{1}{c}{(4)}&\multicolumn{1}{c}{(5)}\\
+            &\multicolumn{1}{c}{ "Dev., Mid.-Inc." "Dev., High Mid-Inc." "Dev., Low Mid-Inc." "Dev., Low-Inc." "OECD" }&\multicolumn{1}{c}{iv\_jai\_pan\_midhi}&\multicolumn{1}{c}{iv\_jai\_pan\_midli}&\multicolumn{1}{c}{iv\_jai\_pan\_li}&\multicolumn{1}{c}{iv\_rvk\_oecd}\\
+\midrule
+news\_s0     &      -0.077         &       0.122         &      -0.369         &      -3.852         &       0.724\sym{***}\\
+            &     (0.236)         &     (0.230)         &     (0.639)         &     (7.310)         &     (0.193)         \\
+\addlinespace
+gRGDP       &       0.391\sym{**} &       0.214         &       0.791\sym{*}  &       4.604         &      -0.004         \\
+            &     (0.184)         &     (0.186)         &     (0.459)         &     (6.922)         &     (0.162)         \\
+\addlinespace
+D.tot       &       0.021         &       0.055\sym{**} &      -0.008         &       0.002         &       0.046\sym{*}  \\
+            &     (0.014)         &     (0.025)         &     (0.017)         &     (0.088)         &     (0.026)         \\
+\addlinespace
+L.netlend   &       0.607\sym{***}&       0.624\sym{***}&       0.578\sym{***}&      -0.066         &       0.653\sym{***}\\
+            &     (0.048)         &     (0.059)         &     (0.088)         &     (0.739)         &     (0.043)         \\
+\midrule
+Mean Y      &       -2.07         &       -2.18         &       -1.94         &       -2.06         &       -1.51         \\
+Observations&         925         &         495         &         430         &         364         &         411         \\
+Exc. Inst. F-stat&      13.532         &      11.123         &       3.062         &       0.158         &       5.729         \\
+\bottomrule
+\end{tabular}
+}

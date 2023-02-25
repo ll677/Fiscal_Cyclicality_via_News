@@ -1,0 +1,76 @@
+{
+\def\sym#1{\ifmmode^{#1}\else\(^{#1}\)\fi}
+\begin{tabular}{l*{8}{c}}
+\toprule
+                    &\multicolumn{1}{c}{(1)}&\multicolumn{1}{c}{(2)}&\multicolumn{1}{c}{(3)}&\multicolumn{1}{c}{(4)}&\multicolumn{1}{c}{(5)}&\multicolumn{1}{c}{(6)}&\multicolumn{1}{c}{(7)}&\multicolumn{1}{c}{(8)}\\
+                    &\multicolumn{1}{c}{wb_wdi_primgexp}&\multicolumn{1}{c}{wb_wdi_primgexp}&\multicolumn{1}{c}{wb_wdi_primgexp}&\multicolumn{1}{c}{wb_wdi_primgexp}&\multicolumn{1}{c}{wb_wdi_primgexp}&\multicolumn{1}{c}{wb_wdi_primgexp}&\multicolumn{1}{c}{wb_wdi_primgexp}&\multicolumn{1}{c}{wb_wdi_primgexp}\\
+\midrule
+Real YoY GDP Growth (\%)&      -0.394\sym{***}&      -0.391\sym{***}&      -0.386\sym{***}&      -0.392\sym{***}&      -0.415\sym{***}&      -0.452\sym{***}&      -0.402\sym{***}&      -0.460\sym{***}\\
+                    &     (0.042)         &     (0.042)         &     (0.046)         &     (0.046)         &     (0.040)         &     (0.069)         &     (0.037)         &     (0.071)         \\
+\addlinespace
+$ News_{i,t-1}(t)$ (\%)&                     &                     &                     &                     &                     &                     &                     &                     \\
+                    &                     &                     &                     &                     &                     &                     &                     &                     \\
+\addlinespace
+$ News_{i,t-2}(t)$ (\%)&                     &                     &                     &                     &                     &                     &                     &                     \\
+                    &                     &                     &                     &                     &                     &                     &                     &                     \\
+\addlinespace
+$ \Delta News_{i,t-1}(t)$ (\%)&                     &                     &                     &                     &                     &                     &                     &                     \\
+                    &                     &                     &                     &                     &                     &                     &                     &                     \\
+\addlinespace
+$ \Delta News_{i,t-2}(t)$ (\%)&                     &                     &                     &                     &                     &                     &                     &                     \\
+                    &                     &                     &                     &                     &                     &                     &                     &                     \\
+\addlinespace
+$ News_{i,t}(t+1)$ (\%)&                     &                     &                     &                     &                     &                     &                     &                     \\
+                    &                     &                     &                     &                     &                     &                     &                     &                     \\
+\addlinespace
+$ News_{i,t}(t+2)$ (\%)&                     &                     &                     &                     &                     &                     &                     &                     \\
+                    &                     &                     &                     &                     &                     &                     &                     &                     \\
+\addlinespace
+$ \Delta News_{i,t}(t+1)$ (\%)&                     &                     &                     &                     &                     &                     &                     &                     \\
+                    &                     &                     &                     &                     &                     &                     &                     &                     \\
+\addlinespace
+$ \Delta News_{i,t}(t+2)$ (\%)&                     &                     &                     &                     &                     &                     &                     &                     \\
+                    &                     &                     &                     &                     &                     &                     &                     &                     \\
+\addlinespace
+\% Change in terms-of-trade index&       0.004         &       0.006         &       0.004         &       0.006         &       0.014         &       0.014         &       0.014         &       0.016         \\
+                    &     (0.024)         &     (0.022)         &     (0.021)         &     (0.022)         &     (0.029)         &     (0.029)         &     (0.029)         &     (0.028)         \\
+\addlinespace
+Lagged government debt (\% GDP)&      -0.008         &      -0.003         &      -0.003         &      -0.003         &      -0.007         &      -0.006         &      -0.005         &      -0.008         \\
+                    &     (0.015)         &     (0.009)         &     (0.009)         &     (0.009)         &     (0.009)         &     (0.009)         &     (0.009)         &     (0.011)         \\
+\addlinespace
+Lagged primary balance (\% GDP)&       0.537\sym{***}&       0.566\sym{***}&       0.553\sym{***}&       0.560\sym{***}&       0.619\sym{***}&       0.615\sym{***}&       0.624\sym{***}&       0.587\sym{***}\\
+                    &     (0.048)         &     (0.039)         &     (0.043)         &     (0.045)         &     (0.040)         &     (0.038)         &     (0.040)         &     (0.035)         \\
+\addlinespace
+$ FctShock_{i,t-1}(t)$ (\%)&      -3.209         &                     &      -3.791         &                     &                     &                     &                     &                     \\
+                    &     (2.079)         &                     &     (2.376)         &                     &                     &                     &                     &                     \\
+\addlinespace
+$ \Delta FctShock_{i,t-1}(t)$ (\%)&                     &      -3.344         &                     &      -3.367         &                     &                     &                     &                     \\
+                    &                     &     (2.116)         &                     &     (2.091)         &                     &                     &                     &                     \\
+\addlinespace
+$ FctShock_{i,t-2}(t)$ (\%)&                     &                     &       3.362         &                     &                     &                     &                     &                     \\
+                    &                     &                     &     (2.388)         &                     &                     &                     &                     &                     \\
+\addlinespace
+$ \Delta FctShock_{i,t-2}(t)$ (\%)&                     &                     &                     &      -0.360         &                     &                     &                     &                     \\
+                    &                     &                     &                     &     (1.411)         &                     &                     &                     &                     \\
+\addlinespace
+$ FctShock_{i,t}(t+1)$ (\%)&                     &                     &                     &                     &      -0.497         &                     &      -0.823\sym{*}  &                     \\
+                    &                     &                     &                     &                     &     (0.379)         &                     &     (0.454)         &                     \\
+\addlinespace
+$ \Delta FctShock_{i,t}(t+1)$ (\%)&                     &                     &                     &                     &                     &       0.132         &                     &       1.636         \\
+                    &                     &                     &                     &                     &                     &     (0.755)         &                     &     (1.174)         \\
+\addlinespace
+$ FctShock_{i,t}(t+2)$ (\%)&                     &                     &                     &                     &                     &                     &       0.782         &                     \\
+                    &                     &                     &                     &                     &                     &                     &     (0.629)         &                     \\
+\addlinespace
+$ \Delta FctShock_{i,t}(t+2)$ (\%)&                     &                     &                     &                     &                     &                     &                     &      -5.064\sym{**} \\
+                    &                     &                     &                     &                     &                     &                     &                     &     (2.043)         \\
+\addlinespace
+Constant            &      18.983\sym{***}&      14.050\sym{***}&      14.913\sym{***}&      14.234\sym{***}&      13.697\sym{***}&      13.390\sym{***}&      12.858\sym{***}&      14.441\sym{***}\\
+                    &     (4.033)         &     (1.102)         &     (2.064)         &     (1.362)         &     (1.364)         &     (1.273)         &     (1.483)         &     (1.429)         \\
+\midrule
+Mean Y              &       31.08         &       31.13         &       31.13         &       31.19         &       31.02         &       31.08         &       31.02         &       31.08         \\
+Observations        &         217         &         216         &         216         &         215         &         218         &         217         &         218         &         217         \\
+Exc. Inst. F-stat   &       2.382         &       2.498         &       1.336         &       1.647         &       1.722         &       0.030         &       1.697         &       4.732         \\
+\bottomrule
+\end{tabular}
+}

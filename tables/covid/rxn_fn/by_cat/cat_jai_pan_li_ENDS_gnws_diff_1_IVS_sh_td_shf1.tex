@@ -1,0 +1,34 @@
+{
+\def\sym#1{\ifmmode^{#1}\else\(^{#1}\)\fi}
+\begin{tabular}{l*{5}{c}}
+\toprule
+                    &\multicolumn{1}{c}{(1)}&\multicolumn{1}{c}{(2)}&\multicolumn{1}{c}{(3)}&\multicolumn{1}{c}{(4)}&\multicolumn{1}{c}{(5)}\\
+                    &\multicolumn{1}{c}{OLS}&\multicolumn{1}{c}{RF}&\multicolumn{1}{c}{IV}&\multicolumn{1}{c}{ "FS (gRGDP)"  "FS (news_diff_1yrs_ago)" }&\multicolumn{1}{c}{fst_eg2_jai_pan_li}\\
+\midrule
+Real YoY GDP Growth (\%)&       0.200\sym{***}&                     &       1.076\sym{***}&                     &                     \\
+                    &     (0.046)         &                     &     (0.394)         &                     &                     \\
+\addlinespace
+$ \Delta News_{i,t-1}(t)$ (\%)&       0.027         &                     &       1.883\sym{*}  &                     &                     \\
+                    &     (0.245)         &                     &     (1.126)         &                     &                     \\
+\addlinespace
+\% Change in terms-of-trade index&       0.066\sym{**} &       0.052\sym{***}&       0.089\sym{***}&      -0.022         &      -0.008         \\
+                    &     (0.032)         &     (0.018)         &     (0.034)         &     (0.016)         &     (0.006)         \\
+\addlinespace
+Lagged primary balance (\% GDP)&       0.437\sym{***}&       0.396\sym{***}&       0.165         &       0.113         &       0.064\sym{**} \\
+                    &     (0.064)         &     (0.082)         &     (0.217)         &     (0.114)         &     (0.026)         \\
+\addlinespace
+$ Shock_{i,t}$ (\%) &                     &       2.206\sym{***}&                     &       2.354\sym{***}&      -0.137         \\
+                    &                     &     (0.338)         &                     &     (0.507)         &     (0.128)         \\
+\addlinespace
+$ \Delta FctShock_{i,t-1}(t)$ (\%)&                     &       1.512\sym{*}  &                     &      -2.338\sym{*}  &       2.049\sym{***}\\
+                    &                     &     (0.820)         &                     &     (1.331)         &     (0.390)         \\
+\addlinespace
+Constant            &      -1.282\sym{***}&      -2.365\sym{***}&                     &       2.059\sym{***}&       0.140         \\
+                    &     (0.222)         &     (0.282)         &                     &     (0.397)         &     (0.120)         \\
+\midrule
+Mean Y              &       -0.37         &       -0.40         &       -0.42         &        4.46         &       -0.21         \\
+Observations        &         394         &         375         &         373         &         391         &         389         \\
+Exc. Inst. F-stat   &                     &      27.165         &       3.257         &      62.522         &      16.474         \\
+\bottomrule
+\end{tabular}
+}

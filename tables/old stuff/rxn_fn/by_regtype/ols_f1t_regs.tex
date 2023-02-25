@@ -1,0 +1,27 @@
+{
+\def\sym#1{\ifmmode^{#1}\else\(^{#1}\)\fi}
+\begin{tabular}{l*{5}{c}}
+\toprule
+            &\multicolumn{1}{c}{(1)}&\multicolumn{1}{c}{(2)}&\multicolumn{1}{c}{(3)}&\multicolumn{1}{c}{(4)}&\multicolumn{1}{c}{(5)}\\
+            &\multicolumn{1}{c}{ "Dev., Mid.-Inc." "Dev., High Mid-Inc." "Dev., Low Mid-Inc." "Dev., Low-Inc." "OECD" }&\multicolumn{1}{c}{ols\_jai\_pan\_midhi}&\multicolumn{1}{c}{ols\_jai\_pan\_midli}&\multicolumn{1}{c}{ols\_jai\_pan\_li}&\multicolumn{1}{c}{ols\_rvk\_oecd}\\
+\midrule
+news\_f1t    &      -0.015         &       0.006         &      -0.048         &      -0.101         &       0.014         \\
+            &     (0.081)         &     (0.111)         &     (0.138)         &     (0.086)         &     (0.139)         \\
+\addlinespace
+gRGDP       &       0.182\sym{***}&       0.202\sym{***}&       0.146         &       0.082         &       0.349\sym{**} \\
+            &     (0.061)         &     (0.071)         &     (0.137)         &     (0.085)         &     (0.153)         \\
+\addlinespace
+D.tot       &       0.032\sym{***}&       0.058\sym{**} &       0.016\sym{*}  &       0.047\sym{*}  &       0.043         \\
+            &     (0.012)         &     (0.022)         &     (0.009)         &     (0.025)         &     (0.034)         \\
+\addlinespace
+L.netlend   &       0.649\sym{***}&       0.680\sym{***}&       0.580\sym{***}&       0.411\sym{***}&       0.706\sym{***}\\
+            &     (0.036)         &     (0.033)         &     (0.086)         &     (0.069)         &     (0.018)         \\
+\addlinespace
+\_cons      &      -1.405\sym{***}&      -1.395\sym{***}&      -1.407\sym{*}  &      -1.614\sym{***}&      -1.128\sym{***}\\
+            &     (0.267)         &     (0.255)         &     (0.713)         &     (0.462)         &     (0.318)         \\
+\midrule
+Mean Y      &       -1.96         &       -1.97         &       -1.95         &       -2.03         &       -1.50         \\
+Observations&         977         &         538         &         439         &         383         &         409         \\
+\bottomrule
+\end{tabular}
+}

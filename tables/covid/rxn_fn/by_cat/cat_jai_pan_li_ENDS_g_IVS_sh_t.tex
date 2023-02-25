@@ -1,0 +1,28 @@
+{
+\def\sym#1{\ifmmode^{#1}\else\(^{#1}\)\fi}
+\begin{tabular}{l*{4}{c}}
+\toprule
+                    &\multicolumn{1}{c}{(1)}&\multicolumn{1}{c}{(2)}&\multicolumn{1}{c}{(3)}&\multicolumn{1}{c}{(4)}\\
+                    &\multicolumn{1}{c}{OLS}&\multicolumn{1}{c}{RF}&\multicolumn{1}{c}{IV}&\multicolumn{1}{c}{ "FS (gRGDP)" }\\
+\midrule
+Real YoY GDP Growth (\%)&       0.191\sym{***}&                     &       1.001\sym{***}&                     \\
+                    &     (0.047)         &                     &     (0.262)         &                     \\
+\addlinespace
+\% Change in terms-of-trade index&       0.059\sym{*}  &       0.043\sym{**} &       0.065\sym{**} &      -0.024         \\
+                    &     (0.031)         &     (0.019)         &     (0.028)         &     (0.016)         \\
+\addlinespace
+Lagged primary balance (\% GDP)&       0.416\sym{***}&       0.377\sym{***}&       0.277\sym{***}&       0.100         \\
+                    &     (0.069)         &     (0.082)         &     (0.101)         &     (0.094)         \\
+\addlinespace
+$ Shock_{i,t}$ (\%) &                     &       2.281\sym{***}&                     &       2.311\sym{***}\\
+                    &                     &     (0.357)         &                     &     (0.531)         \\
+\addlinespace
+Constant            &      -1.218\sym{***}&      -2.471\sym{***}&                     &       2.299\sym{***}\\
+                    &     (0.230)         &     (0.334)         &                     &     (0.507)         \\
+\midrule
+Mean Y              &       -0.36         &       -0.41         &       -0.41         &        4.36         \\
+Observations        &         403         &         394         &         394         &         411         \\
+Exc. Inst. F-stat   &                     &      40.903         &      17.604         &      18.917         \\
+\bottomrule
+\end{tabular}
+}

@@ -1,0 +1,43 @@
+{
+\def\sym#1{\ifmmode^{#1}\else\(^{#1}\)\fi}
+\begin{tabular}{l*{6}{c}}
+\toprule
+                    &\multicolumn{1}{c}{(1)}&\multicolumn{1}{c}{(2)}&\multicolumn{1}{c}{(3)}&\multicolumn{1}{c}{(4)}&\multicolumn{1}{c}{(5)}&\multicolumn{1}{c}{(6)}\\
+                    &\multicolumn{1}{c}{OLS}&\multicolumn{1}{c}{RF}&\multicolumn{1}{c}{IV}&\multicolumn{1}{c}{ "FS (gRGDP)"  "FS (news_1yrs_ago)"  "FS (news_2yrs_ago)" }&\multicolumn{1}{c}{fst_eg2_rvk_oecd}&\multicolumn{1}{c}{fst_eg3_rvk_oecd}\\
+\midrule
+Real YoY GDP Growth (\%)&      -0.319\sym{***}&                     &      -0.266\sym{*}  &                     &                     &                     \\
+                    &     (0.056)         &                     &     (0.143)         &                     &                     &                     \\
+\addlinespace
+$ News_{i,t-1}(t)$ (\%)&      -1.287\sym{*}  &                     &      -1.782\sym{*}  &                     &                     &                     \\
+                    &     (0.697)         &                     &     (0.996)         &                     &                     &                     \\
+\addlinespace
+$ News_{i,t-2}(t)$ (\%)&       1.166\sym{*}  &                     &       1.836         &                     &                     &                     \\
+                    &     (0.609)         &                     &     (1.145)         &                     &                     &                     \\
+\addlinespace
+\% Change in terms-of-trade index&      -0.006         &       0.009         &      -0.014         &      -0.009         &      -0.008         &       0.004         \\
+                    &     (0.016)         &     (0.023)         &     (0.014)         &     (0.034)         &     (0.007)         &     (0.003)         \\
+\addlinespace
+Lagged government debt (\% GDP)&      -0.003         &      -0.014         &      -0.000         &       0.026\sym{**} &      -0.002         &      -0.006         \\
+                    &     (0.013)         &     (0.011)         &     (0.014)         &     (0.009)         &     (0.004)         &     (0.005)         \\
+\addlinespace
+Lagged primary balance (\% GDP)&       0.531\sym{***}&       0.652\sym{***}&       0.514\sym{***}&      -0.257\sym{***}&      -0.088\sym{**} &      -0.047\sym{**} \\
+                    &     (0.047)         &     (0.051)         &     (0.073)         &     (0.064)         &     (0.034)         &     (0.018)         \\
+\addlinespace
+$ Shock_{i,t}$ (\%) &                     &      -0.622         &                     &       2.324\sym{***}&       0.056         &       0.054         \\
+                    &                     &     (0.352)         &                     &     (0.306)         &     (0.045)         &     (0.050)         \\
+\addlinespace
+$ FctShock_{i,t-1}(t)$ (\%)&                     &      -4.058         &                     &       0.249         &       2.144\sym{***}&      -0.092         \\
+                    &                     &     (2.733)         &                     &     (0.611)         &     (0.322)         &     (0.156)         \\
+\addlinespace
+$ FctShock_{i,t-2}(t)$ (\%)&                     &       3.713         &                     &      -0.516         &       0.184         &       2.141\sym{***}\\
+                    &                     &     (2.691)         &                     &     (1.034)         &     (0.352)         &     (0.377)         \\
+\addlinespace
+Constant            &      15.367\sym{***}&      12.290\sym{***}&                     &       6.301\sym{***}&       2.809\sym{**} &       2.160\sym{***}\\
+                    &     (1.987)         &     (2.264)         &                     &     (1.778)         &     (1.032)         &     (0.676)         \\
+\midrule
+Mean Y              &       31.13         &       31.13         &       31.13         &        2.00         &        2.25         &        2.60         \\
+Observations        &         216         &         216         &         216         &         229         &         229         &         229         \\
+Exc. Inst. F-stat   &                     &      15.681         &       8.117         &      20.044         &      31.486         &      23.867         \\
+\bottomrule
+\end{tabular}
+}

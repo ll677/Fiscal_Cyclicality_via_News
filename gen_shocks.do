@@ -5,16 +5,18 @@ clear all
 //// generate pared down set of shock inputs
 
 use $rootdir/data/processed/reg_data
+tempfile using
+keep country year exp_pcgdp
+ren exp_pcgdp exp_pcgdp_home
+gen temp = exp_pcgdp_home if year >= 1988 & year <= 2019
+bys country : egen avg_exp = mean(temp)
+drop temp
+save `using', replace
 
-xtset countryid year
-
+use $rootdir/data/processed/reg_data, clear
 
 gen other_ctry = country
-
-keep other_ctry year fct_* gRGDP
-
-qui include drop_vars.do
-
+keep other_ctry year fct* gRGDP
 save $rootdir/data/processed/shock_inputs, replace
 
 //// Generate shock dataset
@@ -23,90 +25,91 @@ clear all
 
 use $rootdir/data/processed/EXIM if strlen(year) == 4
 
-////// calculate export shares of gdp weights
 
-gen ind = 1
-
-replace ind = 0 if other_ctry == "World"
-
-bysort country year (ind) : gen exp_tot = exp_fob[1]
-
-drop ind
-
-*gen exp_share = exp_fob / exp_tot if !mi
-gen exp_share_t = exp_fob 
-bysort country other_ctry (year) : gen exp_share_tm1 = exp_fob[_n-1]
-bys country year: egen temp = total(exp_share_t)
-replace exp_share_t = exp_share_t/temp // normalize to 1
-drop temp
-bys country year: egen temp = total(exp_share_tm1)
-replace exp_share_tm1 = exp_share_tm1/temp // normalize to 1
-
-////// generate shock weighted sums
+////// generate shocks
 
 destring year, replace
 merge m:1 other_ctry year using $rootdir/data/processed/shock_inputs
 drop if _merge ~= 3
 drop _merge
 
-merge m:1 country year using $rootdir/data/processed/reg_data, keepusing(exp_pcgdp)
-drop if _merge ~= 3
-drop _merge
- 
-bysort country year : egen shock_t = total(exp_share_t * gRGDP)
-bysort country year : egen shock_f2t = total(exp_share_tm1 * news_f2t)
-bysort country year : egen shock_s1t = total(exp_share_tm1 * news_s1t)
-bysort country year : egen shock_f1t = total(exp_share_tm1 * news_f1t)
-bysort country year : egen shock_s0t = total(exp_share_tm1 * news_s0t)
-bysort country year : egen shock_s1f1 = total(exp_share_tm1 * news_s1f1)
-bysort country year : egen shock_f2s1 = total(exp_share_tm1 * news_f2s1)
-bysort country year : egen shock_f2f1 = total(exp_share_tm1 * news_f2f1)
-bysort country year : egen shock_s1s0 = total(exp_share_tm1 * news_s1s0)
-bysort country year : egen shock_f1 = total(exp_share_tm1 * news_f1)
-bysort country year : egen shock_f2 = total(exp_share_tm1 * news_f2)
-bysort country year : egen shock_s1 = total(exp_share_tm1 * news_s0)
-bysort country year : egen shock_s0 = total(exp_share_tm1 * news_s1)
+merge m:1 country year using `using', keep(3) nogen
 
-////// drop duplicate rows and gen indicator for incomplete export data over the period
+sort country other_ctry year
+egen ctry_pair = group(other_ctry country)
+xtset ctry_pair year
 
-*keep country year shock_t shock_s1f1 shock_f2s1 shock_f2f1 shock_s1s0 exp_pcgdp
-keep country year shock_* exp_pcgdp
-bysort country year:  gen dup = cond(_N==1,0,_n)
+local minhz = 0
+local maxhz = 5
+//// Average shock levels and diffs
 
-drop if dup > 1
-drop dup
+bys country year: egen total_wgt = total(exp_fob*(!missing(gRGDP)))
+bys country year: egen shock_t = total(avg_exp*exp_fob*gRGDP/total_wgt/100)
+drop total_wgt
 
-gen exp_empty = 0
-replace exp_empty = 1 if exp_pcgdp == .
+foreach hz of num `minhz'/`maxhz' {
+	sort ctry_pair year
+	
+	* Level shock
+	gen l`hz'_exp_fob = l`hz'.exp_fob
+	gen temp = (fctF`hz'yrs_ago + fctS`hz'yrs_ago)/2
+	bys country year: egen total_wgt = total(l`hz'_exp_fob*(!missing(temp)))
+	bys country year: egen shock_fct`hz' = total(temp*l`hz'_exp_fob*avg_exp/total_wgt/100)
+	replace shock_fct`hz' = . if total_wgt == 0 | missing(avg_exp)
+	drop temp total_wgt
+	
+	* S->F intrayear shock
+	gen temp = fctF`hz'yrs_ago - fctS`hz'yrs_ago
+	bys country year: egen total_wgt = total(l`hz'_exp_fob*(!missing(temp)))
+	bys country year: egen d_shock_fctS2F`hz' = total(temp*l`hz'_exp_fob*avg_exp/total_wgt/100)
+	replace d_shock_fctS2F`hz' = . if total_wgt == 0 | missing(avg_exp)
+	drop total_wgt temp
+	
+	if `hz' < `maxhz' {
+	
+	* Difference shock
+		local hzp1 = `hz' + 1
+		di "hi"
+		gen temp = (fctF`hz'yrs_ago + fctS`hz'yrs_ago - fctF`hzp1'yrs_ago- fctS`hzp1'yrs_ago)/2
+		bys country year: egen total_wgt = total(l`hz'_exp_fob*(!missing(temp)))
+		bys country year: egen d_shock_fct`hz' = total(temp*l`hz'_exp_fob*avg_exp/total_wgt/100)
+		replace d_shock_fct`hz' = . if total_wgt == 0 | missing(avg_exp)
+		drop temp total_wgt
+		
+	* F->S interyear shock
+		gen temp = fctS`hz'yrs_ago - fctF`hzp1'yrs_ago
+		bys country year: egen total_wgt = total(l`hz'_exp_fob*(!missing(temp)))
+		bys country year: egen d_shock_fctF2S`hz' = total(temp*l`hz'_exp_fob*avg_exp/total_wgt/100)
+		replace d_shock_fctF2S`hz' = . if total_wgt == 0 | missing(avg_exp)
+		drop temp total_wgt
+		
+	}
+	
+}
 
-by country : egen avg_exp = mean(exp_pcgdp)
-by country : egen emp_sum = total(exp_empty)
-la var emp_sum "# of empty export data rows"
+//// Average shock levels and diffs by season
 
-gen unfull_flag = 0
-replace unfull_flag = 1 if emp_sum > 0 
-la var unfull_flag "has empty export data rows"
+foreach szn in S F {
+foreach hz of num `minhz'/`maxhz' {
+	bys country year: egen total_wgt = total(l`hz'_exp_fob*(!missing(fct`szn'`hz'yrs_ago)))
+	bys country year: egen shock_fct`szn'`hz' = total(fct`szn'`hz'yrs_ago*l`hz'_exp_fob*avg_exp/total_wgt/100)
+	replace shock_fct`szn'`hz' = . if total_wgt == 0 | missing(avg_exp)
+	
+	if `hz' < `maxhz' {
+	local hzp1 = `hz' + 1
+	gen temp = (fct`szn'`hz'yrs_ago - fct`szn'`hzp1'yrs_ago)
+	bys country year: egen d_shock_fct`szn'`hz' = total(temp*l`hz'_exp_fob*avg_exp/total_wgt/100)
+	replace d_shock_fct`szn'`hz' = . if total_wgt == 0 | missing(avg_exp)
+	drop temp
+	}
+	drop total_wgt
+}
+}
 
 ////// save shocks
 
-egen countryid = group(country)
-sort countryid year
-xtset countryid year
-
-replace shock_t = avg_exp * shock_t
-replace shock_f2t = l.avg_exp * shock_f2t
-replace shock_s1t = l.avg_exp * shock_s1t
-replace shock_f1t = l.avg_exp * shock_f1t
-replace shock_s0t = l.avg_exp * shock_s0t
-replace shock_s1f1 = l.avg_exp * shock_s1f1 
-replace shock_f2s1 = l.avg_exp * shock_f2s1 
-replace shock_f2f1 = l.avg_exp * shock_f2f1 
-replace shock_s1s0 = l.avg_exp * shock_s1s0 
-replace shock_f1 = l.avg_exp * shock_f1 
-replace shock_f2 = l.avg_exp * shock_f2
-replace shock_s0 = l.avg_exp * shock_s0
-replace shock_s1 = l.avg_exp * shock_s1 
-
-drop countryid
+keep country year *shock*
+duplicates drop
+sort country year
 
 save $rootdir/data/processed/shocks, replace 

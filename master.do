@@ -17,10 +17,17 @@ ssc install estout, replace
 ssc install binscatter, replace
 ssc install winsor2, replace
 ssc install outtable, replace
+ssc install texsave, replace
 
-do data_prep_extra.do
+*do data_prep_extra.do
 do data_prep.do
 do exim_work.do
 do gen_shocks.do
 do summ_stats.do
-do jai_pan_regs.do
+do main_LP_regs_final.do
+do main_rxn_fn_regs_final.do
+do expense_LP_regs.do
+do expense_rxn_fn_regs.do
+do covid_LP_regs.do
+do covid_rxn_fn_regs.do
+do covid_outlier_binscatters.do

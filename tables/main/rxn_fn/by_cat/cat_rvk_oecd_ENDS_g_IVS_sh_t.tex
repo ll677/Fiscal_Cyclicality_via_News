@@ -1,0 +1,31 @@
+{
+\def\sym#1{\ifmmode^{#1}\else\(^{#1}\)\fi}
+\begin{tabular}{l*{4}{c}}
+\toprule
+                    &\multicolumn{1}{c}{(1)}&\multicolumn{1}{c}{(2)}&\multicolumn{1}{c}{(3)}&\multicolumn{1}{c}{(4)}\\
+                    &\multicolumn{1}{c}{OLS}&\multicolumn{1}{c}{RF}&\multicolumn{1}{c}{IV}&\multicolumn{1}{c}{ "FS (gRGDP)" }\\
+\midrule
+Real YoY GDP Growth (\%)&       0.296\sym{***}&                     &       0.533\sym{***}&                     \\
+                    &     (0.075)         &                     &     (0.069)         &                     \\
+\addlinespace
+\% Change in terms-of-trade index&      -0.006         &      -0.006         &       0.002         &      -0.014         \\
+                    &     (0.026)         &     (0.028)         &     (0.024)         &     (0.031)         \\
+\addlinespace
+Lagged government debt (\% GDP)&       0.017\sym{**} &       0.021\sym{***}&       0.012\sym{*}  &       0.016         \\
+                    &     (0.007)         &     (0.007)         &     (0.007)         &     (0.012)         \\
+\addlinespace
+Lagged primary balance (\% GDP)&       0.675\sym{***}&       0.743\sym{***}&       0.618\sym{***}&       0.234\sym{**} \\
+                    &     (0.048)         &     (0.051)         &     (0.072)         &     (0.079)         \\
+\addlinespace
+$ Shock_{i,t}$ (\%) &                     &       1.295\sym{***}&                     &       2.427\sym{***}\\
+                    &                     &     (0.243)         &                     &     (0.321)         \\
+\addlinespace
+Constant            &      -2.038\sym{***}&      -2.917\sym{***}&                     &      -1.315         \\
+                    &     (0.451)         &     (0.600)         &                     &     (1.048)         \\
+\midrule
+Mean Y              &       -0.28         &       -0.28         &       -0.28         &        2.03         \\
+Observations        &         258         &         258         &         258         &         258         \\
+Exc. Inst. F-stat   &                     &      28.361         &      57.526         &      57.299         \\
+\bottomrule
+\end{tabular}
+}

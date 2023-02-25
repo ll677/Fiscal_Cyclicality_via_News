@@ -1,0 +1,28 @@
+{
+\def\sym#1{\ifmmode^{#1}\else\(^{#1}\)\fi}
+\begin{tabular}{l*{4}{c}}
+\toprule
+            &\multicolumn{1}{c}{(1)}&\multicolumn{1}{c}{(2)}&\multicolumn{1}{c}{(3)}&\multicolumn{1}{c}{(4)}\\
+            &\multicolumn{1}{c}{OLS}&\multicolumn{1}{c}{RF}&\multicolumn{1}{c}{FS (GDP)}&\multicolumn{1}{c}{FS (news)}\\
+\midrule
+F.news\_s1f1 &      -1.001         &                     &                     &      -0.125         \\
+            &     (0.850)         &                     &                     &     (1.736)         \\
+\addlinespace
+D.tot       &       0.028         &       0.022         &       0.009\sym{**} &       0.022         \\
+            &     (0.027)         &     (0.028)         &     (0.004)         &     (0.035)         \\
+\addlinespace
+L.wb\_wdi\_debt&       0.687\sym{***}&       0.684\sym{***}&       0.000         &       0.679\sym{***}\\
+            &     (0.088)         &     (0.087)         &     (0.003)         &     (0.083)         \\
+\addlinespace
+F.shock\_s1f1&                     &       0.001         &      -0.008\sym{*}  &                     \\
+            &                     &     (0.027)         &     (0.004)         &                     \\
+\addlinespace
+\_cons      &      14.746\sym{***}&      14.949\sym{***}&      -0.211         &                     \\
+            &     (4.320)         &     (4.112)         &     (0.138)         &                     \\
+\midrule
+Mean Y      &       48.11         &       47.64         &       -0.15         &       47.68         \\
+Observations&         550         &         535         &         567         &         514         \\
+Exc. Inst. F-stat&                     &       0.001         &       3.992         &       7.512         \\
+\bottomrule
+\end{tabular}
+}

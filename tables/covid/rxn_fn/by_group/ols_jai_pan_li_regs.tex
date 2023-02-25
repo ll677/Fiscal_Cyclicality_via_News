@@ -1,0 +1,48 @@
+{
+\def\sym#1{\ifmmode^{#1}\else\(^{#1}\)\fi}
+\begin{tabular}{l*{9}{c}}
+\toprule
+                    &\multicolumn{1}{c}{(1)}&\multicolumn{1}{c}{(2)}&\multicolumn{1}{c}{(3)}&\multicolumn{1}{c}{(4)}&\multicolumn{1}{c}{(5)}&\multicolumn{1}{c}{(6)}&\multicolumn{1}{c}{(7)}&\multicolumn{1}{c}{(8)}&\multicolumn{1}{c}{(9)}\\
+                    &\multicolumn{1}{c}{wb_wdi_primbal}&\multicolumn{1}{c}{wb_wdi_primbal}&\multicolumn{1}{c}{wb_wdi_primbal}&\multicolumn{1}{c}{wb_wdi_primbal}&\multicolumn{1}{c}{wb_wdi_primbal}&\multicolumn{1}{c}{wb_wdi_primbal}&\multicolumn{1}{c}{wb_wdi_primbal}&\multicolumn{1}{c}{wb_wdi_primbal}&\multicolumn{1}{c}{wb_wdi_primbal}\\
+\midrule
+Real YoY GDP Growth (\%)&       0.191\sym{***}&       0.225\sym{***}&       0.200\sym{***}&       0.234\sym{***}&       0.216\sym{***}&       0.215\sym{***}&       0.152\sym{***}&       0.160\sym{***}&       0.031         \\
+                    &     (0.047)         &     (0.056)         &     (0.046)         &     (0.057)         &     (0.047)         &     (0.050)         &     (0.043)         &     (0.045)         &     (0.039)         \\
+\addlinespace
+$ News_{i,t-1}(t)$ (\%)&                     &      -0.240\sym{*}  &                     &      -0.094         &                     &                     &                     &                     &                     \\
+                    &                     &     (0.123)         &                     &     (0.222)         &                     &                     &                     &                     &                     \\
+\addlinespace
+$ News_{i,t-2}(t)$ (\%)&                     &                     &                     &      -0.239         &                     &                     &                     &                     &                     \\
+                    &                     &                     &                     &     (0.234)         &                     &                     &                     &                     &                     \\
+\addlinespace
+$ \Delta News_{i,t-1}(t)$ (\%)&                     &                     &       0.027         &                     &       0.032         &                     &                     &                     &                     \\
+                    &                     &                     &     (0.245)         &                     &     (0.271)         &                     &                     &                     &                     \\
+\addlinespace
+$ \Delta News_{i,t-2}(t)$ (\%)&                     &                     &                     &                     &      -0.114         &                     &                     &                     &                     \\
+                    &                     &                     &                     &                     &     (0.147)         &                     &                     &                     &                     \\
+\addlinespace
+$ News_{i,t}(t+1)$ (\%)&                     &                     &                     &                     &                     &      -0.120         &                     &       0.099         &                     \\
+                    &                     &                     &                     &                     &                     &     (0.104)         &                     &     (0.095)         &                     \\
+\addlinespace
+$ News_{i,t}(t+2)$ (\%)&                     &                     &                     &                     &                     &                     &                     &      -0.429\sym{***}&                     \\
+                    &                     &                     &                     &                     &                     &                     &                     &     (0.119)         &                     \\
+\addlinespace
+$ \Delta News_{i,t}(t+1)$ (\%)&                     &                     &                     &                     &                     &                     &       0.433\sym{***}&                     &       0.433\sym{***}\\
+                    &                     &                     &                     &                     &                     &                     &     (0.119)         &                     &     (0.122)         \\
+\addlinespace
+$ \Delta News_{i,t}(t+2)$ (\%)&                     &                     &                     &                     &                     &                     &                     &                     &       0.367\sym{**} \\
+                    &                     &                     &                     &                     &                     &                     &                     &                     &     (0.143)         \\
+\addlinespace
+\% Change in terms-of-trade index&       0.059\sym{*}  &       0.053         &       0.066\sym{**} &       0.062\sym{*}  &       0.068\sym{*}  &       0.057\sym{*}  &       0.058\sym{**} &       0.057\sym{*}  &       0.057\sym{**} \\
+                    &     (0.031)         &     (0.033)         &     (0.032)         &     (0.032)         &     (0.036)         &     (0.032)         &     (0.028)         &     (0.028)         &     (0.027)         \\
+\addlinespace
+Lagged primary balance (\% GDP)&       0.416\sym{***}&       0.414\sym{***}&       0.437\sym{***}&       0.418\sym{***}&       0.438\sym{***}&       0.417\sym{***}&       0.390\sym{***}&       0.430\sym{***}&       0.390\sym{***}\\
+                    &     (0.069)         &     (0.070)         &     (0.064)         &     (0.062)         &     (0.068)         &     (0.069)         &     (0.067)         &     (0.073)         &     (0.065)         \\
+\addlinespace
+Constant            &      -1.218\sym{***}&      -0.093         &      -1.282\sym{***}&       0.371         &      -1.363\sym{***}&      -0.688         &      -0.950\sym{***}&       0.881         &      -0.259         \\
+                    &     (0.230)         &     (0.598)         &     (0.222)         &     (0.501)         &     (0.231)         &     (0.556)         &     (0.197)         &     (0.556)         &     (0.196)         \\
+\midrule
+Mean Y              &       -0.36         &       -0.36         &       -0.37         &       -0.37         &       -0.37         &       -0.35         &       -0.36         &       -0.18         &       -0.19         \\
+Observations        &         403         &         400         &         394         &         394         &         386         &         402         &         400         &         382         &         380         \\
+\bottomrule
+\end{tabular}
+}

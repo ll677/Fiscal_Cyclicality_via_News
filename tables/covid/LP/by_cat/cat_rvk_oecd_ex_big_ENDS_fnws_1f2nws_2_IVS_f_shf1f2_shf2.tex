@@ -1,0 +1,37 @@
+{
+\def\sym#1{\ifmmode^{#1}\else\(^{#1}\)\fi}
+\begin{tabular}{l*{5}{c}}
+\toprule
+                    &\multicolumn{1}{c}{(1)}&\multicolumn{1}{c}{(2)}&\multicolumn{1}{c}{(3)}&\multicolumn{1}{c}{(4)}&\multicolumn{1}{c}{(5)}\\
+                    &\multicolumn{1}{c}{OLS}&\multicolumn{1}{c}{RF}&\multicolumn{1}{c}{IV}&\multicolumn{1}{c}{ "FS (f.news\_1yrs\_ago)"  "FS (f2.news\_2yrs\_ago)" }&\multicolumn{1}{c}{fst\_eg2\_rvk\_oecd\_ex\_big}\\
+\midrule
+Real YoY GDP Growth (\%)&       0.109         &       0.089         &      -0.214         &       0.133\sym{**} &       0.034         \\
+                    &     (0.083)         &     (0.054)         &     (0.250)         &     (0.060)         &     (0.022)         \\
+\addlinespace
+F.$ News\_{i.t-1}(t)$ (\%)&       0.819\sym{**} &                     &       2.968\sym{**} &                     &                     \\
+                    &     (0.367)         &                     &     (1.247)         &                     &                     \\
+\addlinespace
+F2.$ News\_{i.t-2}(t)$ (\%)&      -0.524         &                     &      -2.775\sym{*}  &                     &                     \\
+                    &     (0.369)         &                     &     (1.471)         &                     &                     \\
+\addlinespace
+d\_tot               &       0.045         &       0.049         &       0.026         &       0.006\sym{*}  &      -0.003         \\
+                    &     (0.032)         &     (0.034)         &     (0.029)         &     (0.003)         &     (0.002)         \\
+\addlinespace
+l\_wb\_wdi\_primbal    &       0.617\sym{***}&       0.676\sym{***}&       0.632\sym{***}&       0.064\sym{***}&       0.053\sym{**} \\
+                    &     (0.074)         &     (0.053)         &     (0.103)         &     (0.021)         &     (0.021)         \\
+\addlinespace
+$ FctShock\_{i.t}(t+1)$ (\%)&                     &       0.035\sym{***}&                     &       0.014\sym{**} &       0.002         \\
+                    &                     &     (0.009)         &                     &     (0.005)         &     (0.004)         \\
+\addlinespace
+$ FctShock\_{i.t}(t+2)$ (\%)&                     &      -0.029\sym{**} &                     &       0.007         &       0.017\sym{***}\\
+                    &                     &     (0.010)         &                     &     (0.004)         &     (0.003)         \\
+\addlinespace
+Constant            &      -0.347         &      -0.194         &                     &      -0.282         &       0.198         \\
+                    &     (0.376)         &     (0.578)         &                     &     (0.446)         &     (0.372)         \\
+\midrule
+Mean Y              &        1.30         &        1.30         &        1.30         &        2.18         &        2.44         \\
+Observations        &         261         &         262         &         261         &         262         &         262         \\
+Exc. Inst. F-stat   &                     &       8.379         &       7.112         &       9.786         &      26.723         \\
+\bottomrule
+\end{tabular}
+}

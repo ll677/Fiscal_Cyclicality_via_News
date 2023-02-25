@@ -20,7 +20,10 @@ Code run using Stata 15/IC. Packages ivreg2, ranktest, xtivreg2, and estout are 
 1. Access the World Bank WDI Databank [here](https://databank.worldbank.org/source/world-development-indicators#)
 2. Selecting "World Development Indicators" as the database, make a query with a selection of all countries and aggregates, all available years, and the following variables:
 - Net lending (+) / net borrowing (-) (% of GDP)
+- Expense (% of GDP)
+- Net investment in nonfinancial assets (% of GDP) 
 - GDP growth (annual %)
+- Interest payments (% of expense)
 - Net barter terms of trade index (2000 = 100)
 - Exports of goods and services (% of GDP)
 3. Under the layout tab, set Time and Country to Row and Series to Column

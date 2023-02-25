@@ -1,0 +1,40 @@
+{
+\def\sym#1{\ifmmode^{#1}\else\(^{#1}\)\fi}
+\begin{tabular}{l*{6}{c}}
+\toprule
+                    &\multicolumn{1}{c}{(1)}&\multicolumn{1}{c}{(2)}&\multicolumn{1}{c}{(3)}&\multicolumn{1}{c}{(4)}&\multicolumn{1}{c}{(5)}&\multicolumn{1}{c}{(6)}\\
+                    &\multicolumn{1}{c}{OLS}&\multicolumn{1}{c}{RF}&\multicolumn{1}{c}{IV}&\multicolumn{1}{c}{ "FS (gRGDP)"  "FS (news\_diff\_S1yrs\_ago)"  "FS (news\_diff\_S2yrs\_ago)" }&\multicolumn{1}{c}{fst\_eg2\_rvk\_oecd\_ex\_big}&\multicolumn{1}{c}{fst\_eg3\_rvk\_oecd\_ex\_big}\\
+\midrule
+Real YoY GDP Growth (\%)&       0.245\sym{***}&                     &       0.517\sym{***}&                     &                     &                     \\
+                    &     (0.057)         &                     &     (0.047)         &                     &                     &                     \\
+\addlinespace
+$ \Delta News^s\_{i,t-1}(t)$ (\%)&       0.140         &                     &       0.359\sym{*}  &                     &                     &                     \\
+                    &     (0.232)         &                     &     (0.200)         &                     &                     &                     \\
+\addlinespace
+$ \Delta News^s\_{i,t-2}(t)$ (\%)&       0.044         &                     &       0.193         &                     &                     &                     \\
+                    &     (0.308)         &                     &     (0.971)         &                     &                     &                     \\
+\addlinespace
+Differenced terms-of-trade index (\%)&       0.055         &       0.051         &       0.051\sym{*}  &       0.009         &      -0.004         &      -0.002         \\
+                    &     (0.034)         &     (0.030)         &     (0.030)         &     (0.019)         &     (0.004)         &     (0.004)         \\
+\addlinespace
+Lagged primary balance (\% GDP)&       0.637\sym{***}&       0.675\sym{***}&       0.567\sym{***}&       0.152\sym{**} &       0.042\sym{*}  &       0.023         \\
+                    &     (0.031)         &     (0.052)         &     (0.088)         &     (0.065)         &     (0.021)         &     (0.018)         \\
+\addlinespace
+$ Shock\_{i,t}$ (\%) &                     &       0.014\sym{***}&                     &       0.027\sym{***}&       0.000         &       0.000         \\
+                    &                     &     (0.002)         &                     &     (0.004)         &     (0.001)         &     (0.000)         \\
+\addlinespace
+$ \Delta FctShock^s\_{i,t-1}(t)$ (\%)&                     &       0.009\sym{*}  &                     &       0.004         &       0.020\sym{***}&      -0.000         \\
+                    &                     &     (0.004)         &                     &     (0.003)         &     (0.003)         &     (0.001)         \\
+\addlinespace
+$ \Delta FctShock^s\_{i,t-2}(t)$ (\%)&                     &       0.003         &                     &       0.004         &      -0.000         &       0.013\sym{***}\\
+                    &                     &     (0.009)         &                     &     (0.013)         &     (0.004)         &     (0.003)         \\
+\addlinespace
+Constant            &      -0.043         &      -0.782\sym{***}&                     &      -0.533         &      -0.078         &      -0.085         \\
+                    &     (0.127)         &     (0.189)         &                     &     (0.346)         &     (0.080)         &     (0.067)         \\
+\midrule
+Mean Y              &        1.39         &        1.36         &        1.39         &        2.01         &       -0.22         &       -0.07         \\
+Observations        &         292         &         296         &         292         &         297         &         294         &         293         \\
+Exc. Inst. F-stat   &                     &      14.525         &       4.159         &      19.938         &      20.781         &       6.297         \\
+\bottomrule
+\end{tabular}
+}

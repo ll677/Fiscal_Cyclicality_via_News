@@ -1,0 +1,25 @@
+{
+\def\sym#1{\ifmmode^{#1}\else\(^{#1}\)\fi}
+\begin{tabular}{l*{5}{c}}
+\toprule
+            &\multicolumn{1}{c}{(1)}&\multicolumn{1}{c}{(2)}&\multicolumn{1}{c}{(3)}&\multicolumn{1}{c}{(4)}&\multicolumn{1}{c}{(5)}\\
+            &\multicolumn{1}{c}{ "Dev., Mid.-Inc." "Dev., High Mid-Inc." "Dev., Low Mid-Inc." "Dev., Low-Inc." "OECD" }&\multicolumn{1}{c}{rf\_jai\_pan\_midhi}&\multicolumn{1}{c}{rf\_jai\_pan\_midli}&\multicolumn{1}{c}{rf\_jai\_pan\_li}&\multicolumn{1}{c}{rf\_rvk\_oecd}\\
+\midrule
+F.shock\_f2t &      -0.015\sym{**} &      -0.012\sym{**} &      -0.010         &      -0.479\sym{**} &       0.028\sym{*}  \\
+            &     (0.007)         &     (0.005)         &     (0.016)         &     (0.217)         &     (0.014)         \\
+\addlinespace
+D.tot       &       0.020         &       0.087         &       0.005         &      -0.117         &      -0.144\sym{**} \\
+            &     (0.026)         &     (0.075)         &     (0.026)         &     (0.093)         &     (0.065)         \\
+\addlinespace
+L.wb\_wdi\_debt&       0.680\sym{***}&       0.776\sym{***}&       0.590\sym{***}&       0.803\sym{***}&       0.968\sym{***}\\
+            &     (0.087)         &     (0.106)         &     (0.096)         &     (0.032)         &     (0.014)         \\
+\addlinespace
+\_cons      &      15.393\sym{***}&      11.216\sym{**} &      19.221\sym{***}&      15.972\sym{***}&       3.493\sym{***}\\
+            &     (4.208)         &     (5.116)         &     (4.695)         &     (3.006)         &     (1.013)         \\
+\midrule
+Mean Y      &       47.64         &       47.80         &       47.50         &       59.79         &       75.51         \\
+Observations&         535         &         256         &         279         &         111         &         293         \\
+Exc. Inst. F-stat&       4.307         &       5.451         &       0.373         &       4.878         &       3.959         \\
+\bottomrule
+\end{tabular}
+}

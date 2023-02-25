@@ -1,0 +1,28 @@
+{
+\def\sym#1{\ifmmode^{#1}\else\(^{#1}\)\fi}
+\begin{tabular}{l*{5}{c}}
+\toprule
+            &\multicolumn{1}{c}{(1)}&\multicolumn{1}{c}{(2)}&\multicolumn{1}{c}{(3)}&\multicolumn{1}{c}{(4)}&\multicolumn{1}{c}{(5)}\\
+            &\multicolumn{1}{c}{ "Dev., Mid.-Inc." "Dev., High Mid-Inc." "Dev., Low Mid-Inc." "Dev., Low-Inc." "OECD" }&\multicolumn{1}{c}{rf\_jai\_pan\_midhi}&\multicolumn{1}{c}{rf\_jai\_pan\_midli}&\multicolumn{1}{c}{rf\_jai\_pan\_li}&\multicolumn{1}{c}{rf\_rvk\_oecd}\\
+\midrule
+shock\_f2    &      -0.010\sym{**} &      -0.005         &      -0.016\sym{***}&      -0.007         &      -0.009         \\
+            &     (0.005)         &     (0.006)         &     (0.006)         &     (0.028)         &     (0.006)         \\
+\addlinespace
+gRGDP       &       0.201\sym{***}&       0.207\sym{***}&       0.193\sym{***}&       0.160\sym{***}&       0.332\sym{***}\\
+            &     (0.037)         &     (0.053)         &     (0.034)         &     (0.044)         &     (0.065)         \\
+\addlinespace
+D.tot       &       0.030\sym{**} &       0.056\sym{**} &       0.017\sym{*}  &       0.049\sym{*}  &       0.043         \\
+            &     (0.012)         &     (0.025)         &     (0.009)         &     (0.025)         &     (0.036)         \\
+\addlinespace
+L.netlend   &       0.618\sym{***}&       0.643\sym{***}&       0.572\sym{***}&       0.401\sym{***}&       0.713\sym{***}\\
+            &     (0.049)         &     (0.059)         &     (0.074)         &     (0.071)         &     (0.022)         \\
+\addlinespace
+\_cons      &      -0.598         &      -0.984         &      -0.309         &      -1.475         &      -0.273         \\
+            &     (0.415)         &     (0.584)         &     (0.562)         &     (2.202)         &     (0.603)         \\
+\midrule
+Mean Y      &       -2.09         &       -2.21         &       -1.95         &       -2.05         &       -1.50         \\
+Observations&         912         &         490         &         422         &         363         &         409         \\
+Exc. Inst. F-stat&       4.447         &       0.673         &       8.044         &       0.069         &       2.155         \\
+\bottomrule
+\end{tabular}
+}

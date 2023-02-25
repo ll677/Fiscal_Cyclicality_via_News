@@ -1,76 +1,26 @@
 // cap drop categories, territories, and constituents of other countries
 
-cap drop if country == "World"
-cap drop if country == "Advanced Economies"
-cap drop if country == "Africa Eastern and Southern"
-cap drop if country == "Africa Western and Central"
-cap drop if country == "Arab World"
-cap drop if country == "British Virgin Islands"
-cap drop if country == "Channel Islands"
-cap drop if country == "Caribbean small states"
-cap drop if country == "Central Europe and the Baltics"
-cap drop if country == "Curacao"
-cap drop if country == "Early-demographic dividend"
-cap drop if country == "East Asia & Pacific"
-cap drop if country == "East Asia & Pacific (IDA & IBRD countries)"
-cap drop if country == "East Asia & Pacific (excluding high income)"
-cap drop if country == "Emerging Market and Developing Economies"
-cap drop if country == "Euro area"
-cap drop if country == "Europe & Central Asia"
-cap drop if country == "Europe & Central Asia (IDA & IBRD countries)"
-cap drop if country == "Europe & Central Asia (excluding high income)"
-cap drop if country == "European Union"
-cap drop if country == "Fragile and conflict affected situations"
-cap drop if country == "Faroe Islands"
-cap drop if country == "French Polynesia"
-cap drop if country == "Gibraltar"
-cap drop if country == "Global Partnership for Education"
-cap drop if country == "Greenland"
-cap drop if country == "Guam"
-cap drop if country == "Heavily indebted poor countries (HIPC)"
-cap drop if country == "High income"
-cap drop if country == "Hong Kong SAR, China"
-cap drop if country == "IBRD only"
-cap drop if country == "IDA & IBRD total"
-cap drop if country == "IDA blend"
-cap drop if country == "IDA only"
-cap drop if country == "IDA total"
-cap drop if country == "Isle of Man"
-cap drop if country == "Late-demographic dividend"
-cap drop if country == "Latin America & Caribbean"
-cap drop if country == "Latin America & Caribbean (excluding high income)"
-cap drop if country == "Latin America & the Caribbean (IDA & IBRD countries)"
-cap drop if country == "Least developed countries: UN classification"
-cap drop if country == "Lending category not classified"
-cap drop if country == "Low & middle income"
-cap drop if country == "Low income"
-cap drop if country == "Lower middle income"
-cap drop if country == "Macao SAR, China"
-cap drop if country == "Marshall Islands"
-cap drop if country == "Mayotte"
-cap drop if country == "Middle East & North Africa"
-cap drop if country == "Middle East & North Africa (IDA & IBRD countries)"
-cap drop if country == "Middle East & North Africa (excluding high income)"
-cap drop if country == "Middle income"
-cap drop if country == "Netherlands Antilles"
-cap drop if country == "New Caledonia"
-cap drop if country == "North America"
-cap drop if country == "Northern Mariana Islands"
-cap drop if country == "Not classified"
-cap drop if country == "OECD members"
-cap drop if country == "Other small states"
-cap drop if country == "Pacific island small states"
-cap drop if country == "Post-demographic dividend"
-cap drop if country == "Pre-demographic dividend"
-cap drop if country == "Sint Maarten (Dutch part)"
-cap drop if country == "Small states"
-cap drop if country == "South Asia"
-cap drop if country == "South Asia (IDA & IBRD)"
-cap drop if country == "St. Martin (French part)"
-cap drop if country == "Sub-Saharan Africa"
-cap drop if country == "Sub-Saharan Africa (IDA & IBRD countries)"
-cap drop if country == "Sub-Saharan Africa (excluding high income)"
-cap drop if country == "Tokelau"
-cap drop if country == "Turks and Caicos Islands"
-cap drop if country == "Upper middle income"
-cap drop if country == "Virgin Islands (U.S.)"
+local drop_res = `" "Africa Eastern and Southern" "Africa Western and Central" "American Samoa" "Anguilla" " (a|A)rea" "Asia" "Bermuda" "Belgium-Luxembourg" "British Virgin Islands" "Caribbean" "(c|C)ategor(y|ies)" "Cayman Islands" "Channel Islands" "CIS" "(C|c)ountr" "Curacao" "Czechoslovakia" "demographic" "Eastern Germany" "Economies" "Europe" "Falkland" "Faroe Islands" "Fragile and conflict affected situations" "French Polynesia" "Gibraltar" "Global Partnership for Education" "Greenland" "Guam" "Holy See" "Hong Kong" "IBRD" "IDA & IBRD total" "IDA blend" "IDA only" "IDA total" "income" "Isle of Man" "Latin America" "Lending category not classified" "Macao" "mall states" "Mayotte" "Middle East" "Montserrat" "Netherlands Antilles" "New Caledonia" "North America" "North Africa" "Northern Mariana Islands" "Not classified" "not specified" "OECD"  "Pacific" "pdated" "(Dutch part)" "(French part)" "Sub-Saharan" "Tokelau" "Turks and Caicos Islands" "USSR" "Virgin Islands" "Western Hemisphere" "World" "xport" "Yemen Arab Rep" "Yugoslavia" "'
+
+cap drop drop_ind
+gen drop_ind = 0
+
+foreach re of local drop_res {
+
+replace drop_ind = drop_ind | regexm(country,"`re'")
+cap replace drop_ind = drop_ind | regexm(other_ctry,"`re'")
+
+}
+
+local drop_terms = `" "Africa" "Yemen, People's Dem. Rep. of" "'
+
+foreach term of local drop_terms {
+
+replace drop_ind = drop_ind | (country == "`term'")
+cap replace drop_ind = drop_ind | (other_ctry == "`term'")
+
+}
+
+drop if drop_ind
+drop drop_ind
+

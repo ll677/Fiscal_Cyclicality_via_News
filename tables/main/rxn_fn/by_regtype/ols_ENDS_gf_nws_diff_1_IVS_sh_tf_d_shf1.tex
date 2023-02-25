@@ -1,0 +1,51 @@
+{
+\def\sym#1{\ifmmode^{#1}\else\(^{#1}\)\fi}
+\begin{tabular}{l*{4}{c}}
+\toprule
+                    &\multicolumn{1}{c}{(1)}&\multicolumn{1}{c}{(2)}&\multicolumn{1}{c}{(3)}&\multicolumn{1}{c}{(4)}\\
+                    &\multicolumn{1}{c}{ "OECD" "OECD, Smaller Exporters" "Dev., Mid.-Inc." "Dev., Low-Inc."}&\multicolumn{1}{c}{ols_rvk_oecd_ex_big}&\multicolumn{1}{c}{ols_jai_pan_dev_mid}&\multicolumn{1}{c}{ols_jai_pan_li}\\
+\midrule
+Real YoY GDP Growth (\%)&       0.193\sym{*}  &       0.149         &       0.141\sym{**} &       0.039         \\
+                    &     (0.104)         &     (0.106)         &     (0.054)         &     (0.071)         \\
+\addlinespace
+$ News_{i,t-1}(t)$ (\%)&                     &                     &                     &                     \\
+                    &                     &                     &                     &                     \\
+\addlinespace
+$ News_{i,t-2}(t)$ (\%)&                     &                     &                     &                     \\
+                    &                     &                     &                     &                     \\
+\addlinespace
+$ \Delta News_{i,t-1}(t)$ (\%)&                     &                     &                     &                     \\
+                    &                     &                     &                     &                     \\
+\addlinespace
+$ \Delta News_{i,t-2}(t)$ (\%)&                     &                     &                     &                     \\
+                    &                     &                     &                     &                     \\
+\addlinespace
+$ News_{i,t}(t+1)$ (\%)&                     &                     &                     &                     \\
+                    &                     &                     &                     &                     \\
+\addlinespace
+$ News_{i,t}(t+2)$ (\%)&                     &                     &                     &                     \\
+                    &                     &                     &                     &                     \\
+\addlinespace
+$ \Delta News_{i,t}(t+1)$ (\%)&       0.461\sym{*}  &       0.455         &       0.134         &       0.227         \\
+                    &     (0.244)         &     (0.299)         &     (0.156)         &     (0.151)         \\
+\addlinespace
+$ \Delta News_{i,t}(t+2)$ (\%)&                     &                     &                     &                     \\
+                    &                     &                     &                     &                     \\
+\addlinespace
+\% Change in terms-of-trade index&      -0.007         &       0.012         &       0.010         &       0.022         \\
+                    &     (0.026)         &     (0.028)         &     (0.014)         &     (0.015)         \\
+\addlinespace
+Lagged government debt (\% GDP)&       0.014\sym{*}  &       0.023\sym{**} &       0.026\sym{***}&       0.052\sym{**} \\
+                    &     (0.008)         &     (0.008)         &     (0.006)         &     (0.019)         \\
+\addlinespace
+Lagged primary balance (\% GDP)&       0.681\sym{***}&       0.660\sym{***}&       0.627\sym{***}&       0.266\sym{***}\\
+                    &     (0.050)         &     (0.065)         &     (0.053)         &     (0.065)         \\
+\addlinespace
+Constant            &      -1.490\sym{**} &      -1.915\sym{**} &      -1.501\sym{***}&      -2.966\sym{***}\\
+                    &     (0.549)         &     (0.627)         &     (0.491)         &     (0.728)         \\
+\midrule
+Mean Y              &       -0.28         &        0.10         &        0.81         &       -0.50         \\
+Observations        &         257         &         209         &         559         &         112         \\
+\bottomrule
+\end{tabular}
+}

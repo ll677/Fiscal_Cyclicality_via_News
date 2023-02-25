@@ -1,0 +1,31 @@
+{
+\def\sym#1{\ifmmode^{#1}\else\(^{#1}\)\fi}
+\begin{tabular}{l*{4}{c}}
+\toprule
+                    &\multicolumn{1}{c}{(1)}&\multicolumn{1}{c}{(2)}&\multicolumn{1}{c}{(3)}&\multicolumn{1}{c}{(4)}\\
+                    &\multicolumn{1}{c}{OLS}&\multicolumn{1}{c}{RF}&\multicolumn{1}{c}{IV}&\multicolumn{1}{c}{ "FS (news\_S1yrs\_ago)" }\\
+\midrule
+Real YoY GDP Growth (\%)&       0.135\sym{***}&       0.100\sym{**} &       0.046         &       0.079\sym{**} \\
+                    &     (0.043)         &     (0.039)         &     (0.093)         &     (0.038)         \\
+\addlinespace
+$ News^s\_{i.t-1}(t)$ (\%)&      -0.297\sym{*}  &                     &       0.500         &                     \\
+                    &     (0.159)         &                     &     (0.964)         &                     \\
+\addlinespace
+d\_tot               &       0.039         &       0.046\sym{*}  &       0.053         &      -0.016\sym{***}\\
+                    &     (0.026)         &     (0.025)         &     (0.033)         &     (0.006)         \\
+\addlinespace
+l\_wb\_wdi\_primbal    &       0.415\sym{***}&       0.374\sym{***}&       0.392\sym{***}&      -0.037         \\
+                    &     (0.069)         &     (0.076)         &     (0.080)         &     (0.027)         \\
+\addlinespace
+$ FctShock^s\_{i.t-1}(t)$ (\%)&                     &       0.005         &                     &       0.012\sym{*}  \\
+                    &                     &     (0.009)         &                     &     (0.007)         \\
+\addlinespace
+Constant            &       0.760         &      -1.206         &                     &       3.673\sym{***}\\
+                    &     (0.794)         &     (1.008)         &                     &     (0.687)         \\
+\midrule
+Mean Y              &       -0.20         &       -0.24         &       -0.26         &        5.31         \\
+Observations        &         380         &         375         &         372         &         387         \\
+Exc. Inst. F-stat   &                     &       0.307         &       3.225         &       3.253         \\
+\bottomrule
+\end{tabular}
+}

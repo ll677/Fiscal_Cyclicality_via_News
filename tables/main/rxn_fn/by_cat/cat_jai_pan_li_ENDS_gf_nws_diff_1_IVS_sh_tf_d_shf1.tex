@@ -1,0 +1,37 @@
+{
+\def\sym#1{\ifmmode^{#1}\else\(^{#1}\)\fi}
+\begin{tabular}{l*{5}{c}}
+\toprule
+                    &\multicolumn{1}{c}{(1)}&\multicolumn{1}{c}{(2)}&\multicolumn{1}{c}{(3)}&\multicolumn{1}{c}{(4)}&\multicolumn{1}{c}{(5)}\\
+                    &\multicolumn{1}{c}{OLS}&\multicolumn{1}{c}{RF}&\multicolumn{1}{c}{IV}&\multicolumn{1}{c}{ "FS (gRGDP)"  "FS (f_news_diff_1yrs_ago)" }&\multicolumn{1}{c}{fst_eg2_jai_pan_li}\\
+\midrule
+Real YoY GDP Growth (\%)&       0.039         &                     &      -0.708         &                     &                     \\
+                    &     (0.071)         &                     &     (0.781)         &                     &                     \\
+\addlinespace
+$ \Delta News_{i,t}(t+1)$ (\%)&       0.227         &                     &       2.588         &                     &                     \\
+                    &     (0.151)         &                     &     (1.845)         &                     &                     \\
+\addlinespace
+\% Change in terms-of-trade index&       0.022         &       0.021         &      -0.001         &      -0.080\sym{**} &      -0.011         \\
+                    &     (0.015)         &     (0.016)         &     (0.059)         &     (0.034)         &     (0.011)         \\
+\addlinespace
+Lagged government debt (\% GDP)&       0.052\sym{**} &       0.047\sym{***}&       0.028         &      -0.015         &      -0.001         \\
+                    &     (0.019)         &     (0.012)         &     (0.030)         &     (0.017)         &     (0.004)         \\
+\addlinespace
+Lagged primary balance (\% GDP)&       0.266\sym{***}&       0.384\sym{***}&       0.262\sym{***}&       0.017         &       0.057         \\
+                    &     (0.065)         &     (0.052)         &     (0.068)         &     (0.139)         &     (0.045)         \\
+\addlinespace
+$ Shock_{i,t}$ (\%) &                     &       1.721         &                     &       4.966\sym{**} &       1.761\sym{**} \\
+                    &                     &     (1.499)         &                     &     (1.833)         &     (0.678)         \\
+\addlinespace
+$ \Delta FctShock_{i,t}(t+1)$ (\%)&                     &       4.994         &                     &      -4.625\sym{*}  &       0.948         \\
+                    &                     &     (3.497)         &                     &     (2.312)         &     (0.960)         \\
+\addlinespace
+Constant            &      -2.966\sym{***}&      -3.740\sym{**} &                     &      -0.243         &      -1.515\sym{**} \\
+                    &     (0.728)         &     (1.662)         &                     &     (2.125)         &     (0.649)         \\
+\midrule
+Mean Y              &       -0.50         &       -0.49         &       -0.49         &        3.76         &       -0.09         \\
+Observations        &         112         &         102         &         100         &         109         &         109         \\
+Exc. Inst. F-stat   &                     &       2.043         &       2.745         &       4.064         &       8.747         \\
+\bottomrule
+\end{tabular}
+}
